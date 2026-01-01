@@ -1,0 +1,904 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Social Media Creative</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Pacifico&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body{
+        margin: 0px;
+        pad: 0px;
+    }
+    .font-playfair {
+      font-family: "Playfair Display", serif;
+    }
+    .font-pacifico {
+      font-family: "Pacifico", cursive;
+    }
+    .font-roboto {
+      font-family: "Roboto", sans-serif;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    .hover-scale {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .hover-scale:hover {
+      transform: scale(1.03);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .text-stroke {
+      -webkit-text-stroke: 1px #f9d54a;
+      text-stroke: 1px #f9d54a;
+    }
+  </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Pacifico&family=Roboto:wght@300;400;500&display=swap');
+        
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        .font-pacifico { font-family: 'Pacifico', cursive; }
+        .font-roboto { font-family: 'Roboto', sans-serif; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        
+        .hover-scale { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .hover-scale:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .portfolio-tag {
+            background: linear-gradient(90deg, #f9d54a, #f9b54a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+        
+        .swiper-pagination-bullet-active {
+            background: #f9d54a !important;
+        }
+        
+        .video-play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(249, 213, 74, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .video-container:hover .video-play-button {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-[#f5f5f5] p-4 sm:p-8 font-roboto">
+<div class="fixed inset-0 bg-black/80 z-40 opacity-0 invisible transition-all duration-300" id="overlay"></div>
+
+<div class="fixed top-0 right-0 h-full w-80 bg-white shadow-xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out" id="mobileMenu">
+  <div class="flex flex-col h-full">
+    <!-- Menu Header -->
+    <div class="flex justify-between items-center p-4 border-b border-gray-200">
+      <h3 class="text-xl font-bold text-gray-800">Menu</h3>
+      <button class="close-menu p-2 rounded-full hover:bg-gray-100 transition-colors" id="closeMenu">
+        <i class="fas fa-times text-gray-600 text-lg"></i>
+      </button>
+    </div>
+    
+    <!-- Menu Items -->
+    <div class="flex-1 overflow-y-auto py-2">
+      <div class="mobile-nav-item px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-100 text-lg"><a href="about.html">About us!</a></div>
+      <div class="mobile-nav-item px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-100 text-lg"><a href="product.html">Product</a></div>
+      <div class="mobile-nav-item shop-now px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-100 flex items-center gap-2 text-red-600 font-medium text-lg">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </div>
+      <div class="mobile-nav-item px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-100 text-lg"><a href="contact.html">Contact us</a></div>      
+    </div>
+    
+    <!-- Contact Info -->
+    <div class="p-4 border-t border-gray-200 bg-gray-50">
+      <a href="tel:7901745856" class="mobile-contact-item flex items-center gap-3 py-2 text-gray-700 hover:text-red-600 transition-colors text-lg">
+        <i class="fas fa-phone-alt text-gray-500 w-5 text-center"></i>
+        <span>7901745856</span>
+      </a>
+      <a href="mailto:sdecorativeind@yahoo.com" class="mobile-contact-item flex items-center gap-3 py-2 text-gray-700 hover:text-red-600 transition-colors text-lg">
+        <i class="fas fa-envelope text-gray-500 w-5 text-center"></i>
+        <span>sdecorativeind@yahoo.com</span>
+      </a>
+    </div>
+    
+    <!-- Tagline -->
+    <div class="px-4 py-3 bg-gradient-to-r from-red-600 to-red-800 text-white text-center font-medium text-lg">
+      Make your interior life long!
+    </div>
+    
+    <!-- Social Icons -->
+    <div class="flex justify-center gap-4 p-4 border-t border-gray-200">
+      <a aria-label="Instagram" class="social-icon w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-red-600 hover:text-white transition-colors" href="https://www.instagram.com/aditya_plywood1?igsh=MXRheWwwZG13dnJoeA==" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a aria-label="Facebook" class="social-icon w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-red-600 hover:text-white transition-colors" href="https://www.facebook.com/share/18NPmi1yY9/" target="_blank">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a aria-label="YouTube" class="social-icon w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-red-600 hover:text-white transition-colors" href="https://youtube.com/@adityaplywood?si=FKfMKte63umRImj3" target="_blank">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <button aria-label="WhatsApp" class="social-icon whatsapp-btn w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-green-500 hover:text-white transition-colors" id="whatsappBtnMobileMenu">
+        <i class="fab fa-whatsapp"></i>
+      </button>
+    </div>
+  </div>
+</div>
+  
+<header class="sticky top-0 z-30 bg-white shadow-sm">
+  <div class="container mx-auto px-4">
+    <!-- Top Bar -->
+    <div class="flex items-center justify-between py-3">
+      <!-- Logo with Contact Info -->
+      <div class="flex items-center gap-4">
+        <img alt="Aditya logo" class="logo h-12 w-auto" decoding="async" loading="lazy" src="imga/adityalogo.png">
+        
+        <!-- Desktop Contact Info - Hidden on mobile -->
+        <div class="hidden md:flex flex-col">
+          <a href="tel:9875938687" class="contact-item flex items-center gap-2 text-sm text-gray-700 hover:text-red-600 transition-colors">
+            <i class="fas fa-phone-alt text-red-600"></i>
+            <span>98759 38687</span>
+          </a>
+          <a href="mailto:sdecorativeind@yahoo.com" class="contact-item flex items-center gap-2 text-sm text-gray-700 hover:text-red-600 transition-colors">
+            <i class="fas fa-envelope text-red-600"></i>
+            <span>sdecorativeind@yahoo.com</span>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Desktop Social Icons - Hidden on mobile -->
+      <div class="hidden md:flex items-center gap-3">
+        <a aria-label="Instagram" class="social-icon w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-red-600 hover:text-white transition-colors" href="https://www.instagram.com/aditya_plywood1?igsh=MXRheWwwZG13dnJoeA==" target="_blank">
+          <i class="fab fa-instagram text-sm"></i>
+        </a>
+        <a aria-label="Facebook" class="social-icon w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-red-600 hover:text-white transition-colors" href="https://www.facebook.com/share/18NPmi1yY9/" target="_blank">
+          <i class="fab fa-facebook-f text-sm"></i>
+        </a>
+        <a aria-label="YouTube" class="social-icon w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-red-600 hover:text-white transition-colors" href="https://youtube.com/@adityaplywood?si=FKfMKte63umRImj3" target="_blank">
+          <i class="fab fa-youtube text-sm"></i>
+        </a>
+        <button aria-label="WhatsApp" class="social-icon whatsapp-btn w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-green-500 hover:text-white transition-colors" id="whatsappBtn">
+          <i class="fab fa-whatsapp text-sm"></i>
+        </button>
+      </div>
+      
+      <!-- Mobile Menu Button - Visible only on mobile -->
+      <div class="flex md:hidden items-center gap-3">
+        <button aria-label="WhatsApp" class="social-icon whatsapp-btn w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-green-500 hover:text-white transition-colors" id="whatsappBtnMobile">
+          <i class="fab fa-whatsapp"></i>
+        </button>
+        <button aria-label="Menu" class="mobile-menu-btn p-2" id="menuBtnMobile">
+          <div class="hamburger w-6 flex flex-col gap-1.5" id="hamburger">
+            <div class="hamburger-line h-0.5 w-full bg-gray-700 transition-all duration-300"></div>
+            <div class="hamburger-line h-0.5 w-full bg-gray-700 transition-all duration-300"></div>
+            <div class="hamburger-line h-0.5 w-full bg-gray-700 transition-all duration-300"></div>
+          </div>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:block">
+      <div class="flex justify-center items-center py-3 gap-1 bg-gradient-to-r from-yellow-400 to-red-800 rounded-lg">
+        <a href="about.html" class="nav-item px-5 py-3 text-base font-medium text-white hover:text-white hover:bg-black/20 transition-colors rounded-md">About</a>
+        <a href="product.html" class="nav-item px-5 py-3 text-base font-medium text-white hover:text-white hover:bg-black/20 transition-colors rounded-md">Solutions</a>
+        <a href="index.html" class="nav-item shop-now px-5 py-3 text-base font-medium text-white hover:bg-black/30 rounded-md transition-colors flex items-center gap-1 bg-black/10">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+        <a href="contact.html" class="nav-item px-5 py-3 text-base font-medium text-white hover:text-white hover:bg-black/20 transition-colors rounded-md">Contact</a>
+         <a href="calibratedplywood.html" class="nav-item px-5 py-3 text-base font-medium text-white hover:text-white hover:bg-black/20 transition-colors rounded-md">Work</a>
+        <a href="testimonial.html" class="nav-item px-5 py-3 text-base font-medium text-white hover:text-white hover:bg-black/20 transition-colors rounded-md">Career</a>
+
+       
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const overlay = document.getElementById('overlay');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuBtn = document.getElementById('menuBtnMobile');
+  const closeMenuBtn = document.getElementById('closeMenu');
+  const hamburger = document.getElementById('hamburger');
+  
+  // Toggle mobile menu
+  function toggleMenu() {
+    const isOpen = mobileMenu.classList.contains('translate-x-0');
+    
+    if (isOpen) {
+      // Close menu
+      mobileMenu.classList.remove('translate-x-0');
+      overlay.classList.remove('opacity-100', 'visible');
+      hamburger.classList.remove('open');
+    } else {
+      // Open menu
+      mobileMenu.classList.add('translate-x-0');
+      overlay.classList.add('opacity-100', 'visible');
+      hamburger.classList.add('open');
+    }
+  }
+  
+  // Event listeners
+  menuBtn.addEventListener('click', toggleMenu);
+  closeMenuBtn.addEventListener('click', toggleMenu);
+  overlay.addEventListener('click', toggleMenu);
+  
+  // WhatsApp button functionality
+  const whatsappButtons = document.querySelectorAll('[id^="whatsappBtn"]');
+  whatsappButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      window.open('https://wa.me/919875938687', '_blank');
+    });
+  });
+  
+  // Close menu when clicking on a nav item
+  const navItems = document.querySelectorAll('.mobile-nav-item');
+  navItems.forEach(item => {
+    item.addEventListener('click', function() {
+      toggleMenu();
+    });
+  });
+  
+  // Make navigation bar sticky on scroll
+  const header = document.querySelector('header');
+  const nav = document.querySelector('nav');
+  const topBar = document.querySelector('.flex.items-center.justify-between.py-3');
+  
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+      header.classList.add('shadow-lg');
+      if (nav) {
+        nav.classList.add('sticky-nav');
+      }
+    } else {
+      header.classList.remove('shadow-lg');
+      if (nav) {
+        nav.classList.remove('sticky-nav');
+      }
+    }
+  });
+});
+</script>
+
+<style>
+/* Custom styles for the hamburger menu animation */
+.hamburger.open .hamburger-line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.hamburger.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open .hamburger-line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Ensure mobile menu appears above other content */
+#mobileMenu {
+  z-index: 9999;
+}
+
+/* Improve touch targets for mobile */
+.mobile-nav-item, .mobile-contact-item {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+/* Better transitions */
+.transition-colors {
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+/* Sticky navigation styles */
+.sticky-nav {
+  top: 0;
+  z-index: 40;
+  background: linear-gradient(to right, #c1b1b100, #991b1b00);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .logo {
+    max-height: 40px;
+  }
+}
+
+/* Larger navigation items */
+.nav-item {
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+}
+
+/* Gradient background for active state */
+.nav-item:hover {
+  background: rgba(0,0,0,0.1);
+}
+</style>
+
+
+
+
+
+  <header class="max-w-7xl mx-auto relative mb-16">
+    <div class="relative">
+      <h1 class="text-[4.5rem] sm:text-[7.5rem] font-playfair font-black leading-[0.9] text-black max-w-full flex flex-wrap items-end gap-x-4 gap-y-2">
+        <span class="relative z-10 inline-block">
+          <span class="absolute top-0 left-0 w-[4.5rem] h-[4.5rem] sm:w-[5.5rem] sm:h-[5.5rem] bg-[#f9d54a] -z-10 rounded-sm transform rotate-6"></span>
+          <span class="relative">S</span>
+        </span>
+        <span>OCIAL MEDIA</span>
+        <span class="text-[3rem] sm:text-[4.5rem] font-pacifico font-semibold text-gray-700 leading-[1] ml-2 bg-gradient-to-r from-gray-600 to-gray-800 bg-clip-text text-transparent">
+          Creative
+        </span>
+      </h1>
+      
+      <svg aria-hidden="true" class="absolute right-8 sm:right-20 top-[5rem] sm:top-[7rem] w-16 h-16 sm:w-24 sm:h-24 text-gray-400 animate-float" fill="none" stroke="currentColor" stroke-width="1.5" style="pointer-events:none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17 13l-5 5m0 0l-5-5m5 5V6" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M14.828 14.828c-1.172 1.172-3.071 1.172-4.243 0-1.172-1.172-1.172-3.071 0-4.243 1.172-1.172 3.071-1.172 4.243 0" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </div>
+    
+    <p class="mt-8 max-w-4xl text-xl sm:text-2xl font-roboto text-gray-600 leading-relaxed">
+      <span class="font-pacifico font-semibold text-black text-2xl sm:text-3xl bg-[#f9d54a]/20 px-2 py-1 rounded">
+        Visual content
+      </span>
+      <span class="italic text-gray-600 ml-2">
+        crafted for social networks like Instagram and Facebook to elevate your brand presence
+      </span>
+    </p>
+    
+    <div class="absolute bottom-[-2rem] left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#f9d54a] to-transparent opacity-30"></div>
+  </header>
+
+  <main class="max-w-7xl mx-auto mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-0">
+    <div class="absolute top-1/2 left-0 -translate-y-1/2 w-full h-32 bg-[#f9d54a]/20 -z-10 rounded-full blur-xl"></div>
+    
+    <!-- Creative 1 -->
+    <div class="group relative hover-scale bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+      <img alt="Spotless Commercial Cleaners advertisement" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105" height="400" src="https://storage.googleapis.com/a1aa/image/dc2cc7c0-f237-4ffa-3580-6a0a0b9fc8a5.jpg" width="400"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+          <h3 class="text-white font-playfair font-bold text-xl mb-2">Spotless Cleaners</h3>
+          <p class="text-gray-200 text-sm">Professional cleaning services ad campaign</p>
+        </div>
+      </div>
+      <div class="absolute top-4 right-4 bg-[#f9d54a] text-black px-3 py-1 rounded-full text-xs font-bold shadow-md">Instagram</div>
+    </div>
+    
+    <!-- Creative 2 -->
+    <div class="group relative hover-scale bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+      <img alt="Aditya fire and water resistant plywood advertisement" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105" height="400" src="https://storage.googleapis.com/a1aa/image/fabdc9be-3d83-470d-27ce-950c62863a38.jpg" width="400"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+          <h3 class="text-white font-playfair font-bold text-xl mb-2">Aditya Plywood</h3>
+          <p class="text-gray-200 text-sm">Fire-resistant materials product showcase</p>
+        </div>
+      </div>
+      <div class="absolute top-4 right-4 bg-[#f9d54a] text-black px-3 py-1 rounded-full text-xs font-bold shadow-md">Facebook</div>
+    </div>
+    
+    <!-- Creative 3 -->
+    <div class="group relative hover-scale bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+      <img alt="24/7 Siri for Diet advertisement" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105" height="400" src="https://storage.googleapis.com/a1aa/image/71f9818e-9738-47c5-3aaf-6bd6f7659416.jpg" width="400"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+          <h3 class="text-white font-playfair font-bold text-xl mb-2">Diet Siri</h3>
+          <p class="text-gray-200 text-sm">Nutrition app promotional content</p>
+        </div>
+      </div>
+      <div class="absolute top-4 right-4 bg-[#f9d54a] text-black px-3 py-1 rounded-full text-xs font-bold shadow-md">Instagram</div>
+    </div>
+    
+    <!-- Creative 4 -->
+    <div class="group relative hover-scale bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+      <img alt="Monsoon Offer Guru Gym Membership advertisement" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105" height="400" src="https://storage.googleapis.com/a1aa/image/fde2918c-97da-4f9d-5703-787665547af7.jpg" width="400"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+        <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+          <h3 class="text-white font-playfair font-bold text-xl mb-2">Guru Gym</h3>
+          <p class="text-gray-200 text-sm">Seasonal membership campaign</p>
+        </div>
+      </div>
+      <div class="absolute top-4 right-4 bg-[#f9d54a] text-black px-3 py-1 rounded-full text-xs font-bold shadow-md">Facebook</div>
+    </div>
+  </main>
+
+
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+  <!-- Section header -->
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Creative Portfolio</h2>
+    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Strategically crafted advertisements that drive engagement and deliver results</p>
+  </div>
+
+  <!-- Creative grid with improved design -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+    <!-- Decorative background element -->
+    <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-full max-w-4xl h-64 bg-gradient-to-r from-[#f9d54a]/10 to-[#4f46e5]/10 rounded-full blur-3xl -z-10"></div>
+    
+    <!-- Creative 1 -->
+    <div class="group relative bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-gray-100">
+      <div class="overflow-hidden">
+        <img alt="Spotless Commercial Cleaners advertisement" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110" height="400" src="https://storage.googleapis.com/a1aa/image/dc2cc7c0-f237-4ffa-3580-6a0a0b9fc8a5.jpg" width="400"/>
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+        <div class="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="bg-[#f9d54a] text-black px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">Instagram</span>
+            <span class="text-xs text-white/80">Campaign</span>
+          </div>
+          <h3 class="text-white font-bold text-xl md:text-2xl mb-2">Spotless Cleaners</h3>
+          <p class="text-gray-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150">Professional cleaning services ad campaign with 32% engagement boost</p>
+        </div>
+      </div>
+      <div class="p-5 bg-white">
+        <h3 class="font-semibold text-gray-900 truncate">Spotless Cleaners</h3>
+        <p class="text-sm text-gray-500 mt-1">Commercial Cleaning</p>
+      </div>
+    </div>
+    
+    <!-- Creative 2 -->
+    <div class="group relative bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-gray-100">
+      <div class="overflow-hidden">
+        <img alt="Aditya fire and water resistant plywood advertisement" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110" height="400" src="https://storage.googleapis.com/a1aa/image/fabdc9be-3d83-470d-27ce-950c62863a38.jpg" width="400"/>
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+        <div class="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="bg-[#f9d54a] text-black px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">Facebook</span>
+            <span class="text-xs text-white/80">Product</span>
+          </div>
+          <h3 class="text-white font-bold text-xl md:text-2xl mb-2">Aditya Plywood</h3>
+          <p class="text-gray-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150">Fire-resistant materials product showcase with 28% CTR</p>
+        </div>
+      </div>
+      <div class="p-5 bg-white">
+        <h3 class="font-semibold text-gray-900 truncate">Aditya Plywood</h3>
+        <p class="text-sm text-gray-500 mt-1">Building Materials</p>
+      </div>
+    </div>
+    
+    <!-- Creative 3 -->
+    <div class="group relative bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-gray-100">
+      <div class="overflow-hidden">
+        <img alt="24/7 Siri for Diet advertisement" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110" height="400" src="https://storage.googleapis.com/a1aa/image/71f9818e-9738-47c5-3aaf-6bd6f7659416.jpg" width="400"/>
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+        <div class="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="bg-[#f9d54a] text-black px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">Instagram</span>
+            <span class="text-xs text-white/80">Promotion</span>
+          </div>
+          <h3 class="text-white font-bold text-xl md:text-2xl mb-2">Diet Siri</h3>
+          <p class="text-gray-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150">Nutrition app promotional content driving 15K+ installs</p>
+        </div>
+      </div>
+      <div class="p-5 bg-white">
+        <h3 class="font-semibold text-gray-900 truncate">Diet Siri</h3>
+        <p class="text-sm text-gray-500 mt-1">Health & Wellness</p>
+      </div>
+    </div>
+    
+    <!-- Creative 4 -->
+    <div class="group relative bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-gray-100">
+      <div class="overflow-hidden">
+        <img alt="Monsoon Offer Guru Gym Membership advertisement" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110" height="400" src="https://storage.googleapis.com/a1aa/image/fde2918c-97da-4f9d-5703-787665547af7.jpg" width="400"/>
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+        <div class="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="bg-[#f9d54a] text-black px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">Facebook</span>
+            <span class="text-xs text-white/80">Seasonal</span>
+          </div>
+          <h3 class="text-white font-bold text-xl md:text-2xl mb-2">Guru Gym</h3>
+          <p class="text-gray-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150">Seasonal membership campaign with 42% conversion rate</p>
+        </div>
+      </div>
+      <div class="p-5 bg-white">
+        <h3 class="font-semibold text-gray-900 truncate">Guru Gym</h3>
+        <p class="text-sm text-gray-500 mt-1">Fitness Center</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA at bottom -->
+  <div class="text-center mt-16">
+    <button class="bg-gray-900 hover:bg-gray-800 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+      View Full Portfolio
+    </button>
+  </div>
+</main>
+
+
+
+
+<section class="w-full bg-gray-950 py-24 relative overflow-hidden">
+  <!-- Decorative elements -->
+  <div class="absolute -top-32 -left-32 w-64 h-64 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+  <div class="absolute -bottom-32 -right-32 w-64 h-64 bg-amber-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+  
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <p class="text-xs font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 uppercase text-center mb-3 tracking-widest">
+      PRODUCT SHOWCASE
+    </p>
+    
+    <h2 class="text-center font-extrabold text-4xl sm:text-5xl max-w-4xl mx-auto leading-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-4">
+      <span class="inline-block">Premium Plywood</span>
+      <span class="inline-block text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-pink-500">Performance Tests</span>
+    </h2>
+    
+    <p class="text-center text-gray-400 max-w-2xl mx-auto mb-16">Witness the superior quality of our water and fire-resistant plywood through rigorous testing</p>
+    
+    <!-- Video Grid - Improved Layout -->
+    <div class="flex flex-col md:flex-row items-center justify-center gap-8 p-6 bg-gray-900/50 rounded-2xl border border-gray-800">
+      <!-- Video 1 -->
+      <div class="w-full md:w-1/3 max-w-md aspect-[9/16] relative group">
+        <video autoplay loop muted playsinline class="w-full h-full object-cover rounded-xl shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:brightness-110 brightness-90">
+          <source src="video/0605 (2).mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black/80 via-black/30 to-transparent rounded-xl">
+          <h3 class="text-white font-bold text-xl mb-1">Calibrated Plywood</h3>
+          <p class="text-gray-300 text-sm">Uniform thickness, perfect finish!</p>
+        </div>
+        <button onclick="toggleMute(this)" class="absolute bottom-20 right-4 bg-black/70 hover:bg-black/90 text-white rounded-full p-2 transition-all duration-300 shadow-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clip-rule="evenodd" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Video 2 -->
+      <div class="w-full md:w-1/3 max-w-md aspect-[9/16] relative group">
+        <video autoplay loop muted playsinline class="w-full h-full object-cover rounded-xl shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:brightness-110 brightness-90">
+          <source src="video/SW .mov" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black/80 via-black/30 to-transparent rounded-xl">
+          <h3 class="text-white font-bold text-xl mb-1">65°C Water Resistant</h3>
+          <p class="text-gray-300 text-sm">Tested for 5+ hours</p>
+        </div>
+        <button onclick="toggleMute(this)" class="absolute bottom-20 right-4 bg-black/70 hover:bg-black/90 text-white rounded-full p-2 transition-all duration-300 shadow-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clip-rule="evenodd" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Video 3 -->
+      <div class="w-full md:w-1/3 max-w-md aspect-[9/16] relative group">
+        <video autoplay loop muted playsinline class="w-full h-full object-cover rounded-xl shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:brightness-110 brightness-90">
+          <source src="video/SW .mov" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black/80 via-black/30 to-transparent rounded-xl">
+          <h3 class="text-white font-bold text-xl mb-1">Boiling Water Test</h3>
+          <p class="text-gray-300 text-sm">Extreme condition durability</p>
+        </div>
+        <button onclick="toggleMute(this)" class="absolute bottom-20 right-4 bg-black/70 hover:bg-black/90 text-white rounded-full p-2 transition-all duration-300 shadow-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clip-rule="evenodd" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    <!-- CTA -->
+    <div class="text-center mt-16">
+      <a href="#" class="inline-flex items-center px-8 py-3.5 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-full hover:shadow-xl transition-all duration-300 hover:scale-105">
+        View All Product Tests
+        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+  
+  <style>
+    @keyframes blob {
+      0% { transform: translate(0px, 0px) scale(1); }
+      33% { transform: translate(30px, -50px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+      100% { transform: translate(0px, 0px) scale(1); }
+    }
+    .animate-blob {
+      animation: blob 7s infinite;
+    }
+    .animation-delay-2000 {
+      animation-delay: 2s;
+    }
+  </style>
+
+  <script>
+    // Mute toggle functionality
+    function toggleMute(button) {
+      const video = button.closest('.group').querySelector('video');
+      const icon = button.querySelector('svg');
+      
+      if (video.muted) {
+        video.muted = false;
+        icon.innerHTML = `
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M12 6a7.975 7.975 0 015.657 2.343m0 0a7.975 7.975 0 010 11.314m-11.314 0a7.975 7.975 0 010-11.314m0 0a7.975 7.975 0 015.657-2.343" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+        `;
+      } else {
+        video.muted = true;
+        icon.innerHTML = `
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clip-rule="evenodd" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+        `;
+      }
+    }
+
+    // Initialize videos
+    document.addEventListener('DOMContentLoaded', function() {
+      const videos = document.querySelectorAll('video');
+      
+      videos.forEach(video => {
+        // Try to autoplay (may be blocked by browser)
+        const playPromise = video.play();
+        
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            console.log('Autoplay prevented:', error);
+          });
+        }
+      });
+    });
+  </script>
+</section>
+
+<section class="w-full bg-gray-950 py-16 md:py-24 relative overflow-hidden">
+  <!-- Previous decorative elements and header remain the same -->
+  
+  <!-- Video Grid - Updated with fixes -->
+  <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 p-6 bg-gray-900/50 rounded-2xl border border-gray-800">
+    <!-- Video 1 - Updated with poster and fallback -->
+    <div class="w-full md:w-[30%] max-w-[350px] aspect-[9/16] relative group bg-black rounded-xl overflow-hidden" data-aos="flip-up">
+      <video 
+        autoplay 
+        loop 
+        muted 
+        playsinline 
+        class="w-full h-full object-cover transition-all duration-300 group-hover:brightness-110 brightness-90"
+        poster="https://via.placeholder.com/350x622/111827/FFFFFF?text=Loading+Video">
+        <source src="VIDEO/0605%20(2).mp4" type="video/mp4">
+        <!-- Multiple fallback sources -->
+        <source src="VIDEO/0605%20(2).webm" type="video/webm">
+        <source src="VIDEO/0605%20(2).ogg" type="video/ogg">
+        Your browser does not support HTML5 video.
+      </video>
+      <!-- Rest of the overlay content remains the same -->
+    </div>
+
+    <!-- Repeat similar structure for other videos -->
+  </div>
+
+  <!-- Rest of the section remains the same -->
+</section>
+
+<script>
+// Enhanced video initialization
+document.addEventListener('DOMContentLoaded', function() {
+  const videos = document.querySelectorAll('video');
+  
+  videos.forEach(video => {
+    // First try autoplay
+    const playPromise = video.play();
+    
+    if (playPromise !== undefined) {
+      playPromise.catch(error => {
+        // If autoplay fails, show poster image and add play button
+        console.log('Autoplay prevented:', error);
+        video.load(); // Reset the video
+        video.poster = "https://via.placeholder.com/350x622/111827/FFFFFF?text=Click+to+Play";
+        video.controls = true; // Show controls as fallback
+      });
+    }
+    
+    // Handle video loading errors
+    video.addEventListener('error', function() {
+      console.error('Video error:', video.error);
+      video.poster = "https://via.placeholder.com/350x622/111827/FF0000?text=Video+Error";
+    });
+  });
+});
+</script>
+  <footer class="max-w-7xl mx-auto mt-24 text-center">
+    <div class="inline-flex items-center space-x-6">
+      <a href="#" class="text-gray-600 hover:text-[#f9d54a] transition-colors duration-300">
+        <i class="fab fa-instagram text-2xl"></i>
+      </a>
+      <a href="#" class="text-gray-600 hover:text-[#f9d54a] transition-colors duration-300">
+        <i class="fab fa-facebook text-2xl"></i>
+      </a>
+      <a href="#" class="text-gray-600 hover:text-[#f9d54a] transition-colors duration-300">
+        <i class="fab fa-behance text-2xl"></i>
+      </a>
+      <a href="#" class="text-gray-600 hover:text-[#f9d54a] transition-colors duration-300">
+        <i class="fab fa-dribbble text-2xl"></i>
+      </a>
+    </div>
+  </footer>
+
+
+
+<div class="max-w-full overflow-hidden py-8 px-4 ">
+  <!-- Animated Carousel Section -->
+  <div class="relative h-32 overflow-hidden mb-8">
+    <div class="flex space-x-8 absolute left-0 animate-infinite-scroll hover:pause">
+      <!-- Duplicated items for seamless looping -->
+      <div class="flex space-x-8">
+        <div class="flex flex-col items-center space-y-2 min-w-[100px] transform hover:scale-105 transition-transform duration-300">
+          <img alt="Altitude Realtors logo" class="w-20 h-20 object-contain rounded-lg shadow-md" src="https://storage.googleapis.com/a1aa/image/5969da46-1997-40e3-d597-479d88992d0b.jpg"/>
+          <div class="text-sm text-gray-700 font-medium">Altitude Realtors</div>
+        </div>
+        <div class="flex flex-col items-center space-y-2 min-w-[100px] transform hover:scale-105 transition-transform duration-300">
+          <img alt="Dawn Tribe logo" class="w-20 h-20 object-contain rounded-lg shadow-md" src="https://storage.googleapis.com/a1aa/image/59fd18cc-a4b0-47ec-b0d6-0e9331242905.jpg"/>
+          <div class="text-sm text-gray-700 font-medium">Print</div>
+        </div>
+        <div class="flex flex-col items-center space-y-2 min-w-[100px] transform hover:scale-105 transition-transform duration-300">
+          <img alt="Rocket illustration" class="w-20 h-20 object-contain rounded-lg shadow-md" src="https://storage.googleapis.com/a1aa/image/07168a0a-2d12-4258-11b7-36b5cf8c6511.jpg"/>
+          <div class="text-sm text-gray-700 font-medium">Illustration</div>
+        </div>
+        <div class="flex flex-col items-center space-y-2 min-w-[100px] transform hover:scale-105 transition-transform duration-300">
+          <img alt="Typography collage" class="w-20 h-20 object-contain rounded-lg shadow-md" src="https://storage.googleapis.com/a1aa/image/76521808-1135-4c8a-03c7-69e9a0530230.jpg"/>
+          <div class="text-sm text-gray-700 font-medium">Typography</div>
+        </div>
+        <div class="flex flex-col items-center space-y-2 min-w-[100px] transform hover:scale-105 transition-transform duration-300">
+          <img alt="Web design pattern" class="w-20 h-20 object-contain rounded-lg shadow-md" src="https://storage.googleapis.com/a1aa/image/453f1514-4054-4e1d-9029-fb405300a548.jpg"/>
+          <div class="text-sm text-gray-700 font-medium">Web Design</div>
+        </div>
+        <div class="flex flex-col items-center space-y-2 min-w-[100px] transform hover:scale-105 transition-transform duration-300">
+          <img alt="Mobile app UI" class="w-20 h-20 object-contain rounded-lg shadow-md" src="https://storage.googleapis.com/a1aa/image/f3c9d5e0-238a-439a-e1b4-f96c12d5b82e.jpg"/>
+          <div class="text-sm text-gray-700 font-medium">Mobile</div>
+        </div>
+        <div class="flex flex-col items-center space-y-2 min-w-[100px] transform hover:scale-105 transition-transform duration-300">
+          <img alt="Animation design" class="w-20 h-20 object-contain rounded-lg shadow-md" src="https://storage.googleapis.com/a1aa/image/047d327c-01ea-4b26-5894-60e9d482bb5c.jpg"/>
+          <div class="text-sm text-gray-700 font-medium">Animation</div>
+        </div>
+        <div class="flex flex-col items-center space-y-2 min-w-[100px] transform hover:scale-105 transition-transform duration-300">
+          <img alt="Product design icon" class="w-20 h-20 object-contain rounded-lg shadow-md" src="https://storage.googleapis.com/a1aa/image/0cad210c-1d54-431c-2aca-e85ff7d25e95.jpg"/>
+          <div class="text-sm text-gray-700 font-medium">Product Design</div>
+        </div>
+        <div class="flex flex-col items-center space-y-2 min-w-[100px] transform hover:scale-105 transition-transform duration-300">
+          <img alt="Branding logos" class="w-20 h-20 object-contain rounded-lg shadow-md" src="https://storage.googleapis.com/a1aa/image/0314cc54-c100-429e-0b52-267e4a712cbf.jpg"/>
+          <div class="text-sm text-gray-700 font-medium">Branding</div>
+        </div>
+      </div>
+      <!-- Duplicate set for seamless looping -->
+      <div class="flex space-x-8">
+        <div class="flex flex-col items-center space-y-2 min-w-[100px] transform hover:scale-105 transition-transform duration-300">
+          <img alt="Altitude Realtors logo" class="w-20 h-20 object-contain rounded-lg shadow-md" src="https://storage.googleapis.com/a1aa/image/5969da46-1997-40e3-d597-479d88992d0b.jpg"/>
+          <div class="text-sm text-gray-700 font-medium">Altitude Realtors</div>
+        </div>
+        <div class="flex flex-col items-center space-y-2 min-w-[100px] transform hover:scale-105 transition-transform duration-300">
+          <img alt="Dawn Tribe logo" class="w-20 h-20 object-contain rounded-lg shadow-md" src="https://storage.googleapis.com/a1aa/image/59fd18cc-a4b0-47ec-b0d6-0e9331242905.jpg"/>
+          <div class="text-sm text-gray-700 font-medium">Print</div>
+        </div>
+        <div class="flex flex-col items-center space-y-2 min-w-[100px] transform hover:scale-105 transition-transform duration-300">
+          <img alt="Rocket illustration" class="w-20 h-20 object-contain rounded-lg shadow-md" src="https://storage.googleapis.com/a1aa/image/07168a0a-2d12-4258-11b7-36b5cf8c6511.jpg"/>
+          <div class="text-sm text-gray-700 font-medium">Illustration</div>
+        </div>
+        <div class="flex flex-col items-center space-y-2 min-w-[100px] transform hover:scale-105 transition-transform duration-300">
+          <img alt="Typography collage" class="w-20 h-20 object-contain rounded-lg shadow-md" src="https://storage.googleapis.com/a1aa/image/76521808-1135-4c8a-03c7-69e9a0530230.jpg"/>
+          <div class="text-sm text-gray-700 font-medium">Typography</div>
+        </div>
+        <div class="flex flex-col items-center space-y-2 min-w-[100px] transform hover:scale-105 transition-transform duration-300">
+          <img alt="Web design pattern" class="w-20 h-20 object-contain rounded-lg shadow-md" src="https://storage.googleapis.com/a1aa/image/453f1514-4054-4e1d-9029-fb405300a548.jpg"/>
+          <div class="text-sm text-gray-700 font-medium">Web Design</div>
+        </div>
+        <div class="flex flex-col items-center space-y-2 min-w-[100px] transform hover:scale-105 transition-transform duration-300">
+          <img alt="Mobile app UI" class="w-20 h-20 object-contain rounded-lg shadow-md" src="https://storage.googleapis.com/a1aa/image/f3c9d5e0-238a-439a-e1b4-f96c12d5b82e.jpg"/>
+          <div class="text-sm text-gray-700 font-medium">Mobile</div>
+        </div>
+        <div class="flex flex-col items-center space-y-2 min-w-[100px] transform hover:scale-105 transition-transform duration-300">
+          <img alt="Animation design" class="w-20 h-20 object-contain rounded-lg shadow-md" src="https://storage.googleapis.com/a1aa/image/047d327c-01ea-4b26-5894-60e9d482bb5c.jpg"/>
+          <div class="text-sm text-gray-700 font-medium">Animation</div>
+        </div>
+        <div class="flex flex-col items-center space-y-2 min-w-[100px] transform hover:scale-105 transition-transform duration-300">
+          <img alt="Product design icon" class="w-20 h-20 object-contain rounded-lg shadow-md" src="https://storage.googleapis.com/a1aa/image/0cad210c-1d54-431c-2aca-e85ff7d25e95.jpg"/>
+          <div class="text-sm text-gray-700 font-medium">Product Design</div>
+        </div>
+        <div class="flex flex-col items-center space-y-2 min-w-[100px] transform hover:scale-105 transition-transform duration-300">
+          <img alt="Branding logos" class="w-20 h-20 object-contain rounded-lg shadow-md" src="https://storage.googleapis.com/a1aa/image/0314cc54-c100-429e-0b52-267e4a712cbf.jpg"/>
+          <div class="text-sm text-gray-700 font-medium">Branding</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-200 mt-12 py-6 px-6 bg-white rounded-lg shadow-sm">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="font-pacifico text-2xl text-black select-none bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">
+        Vrocus
+      </div>
+      <nav class="flex flex-wrap justify-center gap-4 md:gap-6 text-sm text-gray-600 font-medium">
+        <a class="hover:text-black hover:underline transition-colors" href="#">For designers</a>
+        <a class="hover:text-black hover:underline transition-colors" href="#">Hire talent</a>
+        <a class="hover:text-black hover:underline transition-colors" href="#">Inspiration</a>
+        <a class="hover:text-black hover:underline transition-colors" href="#">Advertising</a>
+        <a class="hover:text-black hover:underline transition-colors" href="#">Blog</a>
+        <a class="hover:text-black hover:underline transition-colors" href="#">About</a>
+        <a class="hover:text-black hover:underline transition-colors" href="#">Careers</a>
+        <a class="hover:text-black hover:underline transition-colors" href="#">Support</a>
+      </nav>
+      <div class="flex space-x-5 text-gray-500 text-lg">
+        <a aria-label="Twitter" class="hover:text-blue-400 transition-colors" href="#">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a aria-label="Facebook" class="hover:text-blue-600 transition-colors" href="#">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a aria-label="Instagram" class="hover:text-pink-600 transition-colors" href="#">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a aria-label="Pinterest" class="hover:text-red-600 transition-colors" href="#">
+          <i class="fab fa-pinterest-p"></i>
+        </a>
+      </div>
+    </div>
+    <div class="mt-6 text-center text-xs text-gray-400">
+      © 2023 Dribbble. All rights reserved.
+    </div>
+  </footer>
+</div>
+
+<style>
+  @keyframes infinite-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  
+  .animate-infinite-scroll {
+    animation: infinite-scroll 20s linear infinite;
+    display: flex;
+    width: 200%;
+  }
+  
+  .hover\:pause:hover {
+    animation-play-state: paused;
+  }
+</style>
+  
+</body>
+</html>
