@@ -39,7 +39,7 @@ export function WhyVrocus() {
                         Why visionary brands <span className="text-primary">choose VROCUS</span>
                     </h2>
                     <p className="text-lg text-muted-foreground mb-8">
-                        We don't just build websites; we build digital growth engines. Our unique approach combines artistic excellence with engineering precision.
+                        We don&apos;t just build websites; we build digital growth engines. Our unique approach combines artistic excellence with engineering precision.
                     </p>
                     <div className="flex gap-4">
                         <div className="flex flex-col">

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import { Work3DCarousel } from "@/components/sections/Work3DCarousel";
 
 // Data from portpolio.html
 const creativeProjects = [
@@ -18,7 +19,7 @@ const creativeProjects = [
         category: "Facebook Product",
         description: "Fire-resistant materials product showcase with 28% CTR.",
         image: "https://storage.googleapis.com/a1aa/image/fabdc9be-3d83-470d-27ce-950c62863a38.jpg",
-        color: "bg-blue-500"
+        color: "bg-green-500"
     },
     {
         title: "Diet Siri",
@@ -40,7 +41,7 @@ const videos = [
     {
         title: "Calibrated Plywood",
         subtitle: "Uniform thickness, perfect finish!",
-        src: "https://vrocus-assets.s3.amazonaws.com/0605+(2).mp4" // Placeholder or original if accessible. Using a placeholder for now as local path 'video/' isn't available.
+        src: "https://vrocus-assets.s3.amazonaws.com/0605+(2).mp4"
     },
     {
         title: "65°C Water Resistant",
@@ -63,27 +64,26 @@ const brands = [
     { name: "Mobile", image: "https://storage.googleapis.com/a1aa/image/f3c9d5e0-238a-439a-e1b4-f96c12d5b82e.jpg" },
 ];
 
+// Brand Gradients
+const ACCENT_GRADIENT = "from-[#F5B21A] via-[#F27C2C] via-[#E64545] via-[#6BCF63] to-[#2FB9C3]";
+const PRIMARY_GRADIENT = "from-[#1E2A4A] via-[#1F6ED4] to-[#16A1B5]";
+
 export default function PortfolioPage() {
     return (
-        <main className="bg-background min-h-screen pt-32">
+        <main className="bg-black min-h-screen relative overflow-hidden">
+            {/* Background Texture/Noise */}
+            <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] pointer-events-none" />
 
-            {/* Header Section */}
-            <section className="container mx-auto px-6 mb-24 text-center">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="inline-block relative"
-                >
-                    <span className="absolute -top-6 -left-6 w-16 h-16 bg-primary/20 blur-xl rounded-full"></span>
-                    <h1 className="text-6xl md:text-9xl font-bold tracking-tighter text-white mb-6 relative z-10">
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">Social</span> Media <br />
-                        <span className="italic font-serif text-gray-500">Creative</span>
-                    </h1>
-                </motion.div>
-                <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-                    Visual content crafted for social networks like Instagram and Facebook to elevate your brand presence.
-                </p>
-            </section>
+            {/* Ambient Glows */}
+            <div className={`absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-r ${PRIMARY_GRADIENT} opacity-20 blur-[150px] rounded-full pointer-events-none`} />
+            <div className={`absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-gradient-to-r ${ACCENT_GRADIENT} opacity-10 blur-[150px] rounded-full pointer-events-none`} />
+
+
+            {/* 3D Carousel Hero */}
+            <Work3DCarousel />
+
+            {/* Spacer for content below hero */}
+            <div className="pt-24"></div>
 
             {/* Creative Grid */}
             <section className="container mx-auto px-6 mb-32">

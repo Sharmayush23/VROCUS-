@@ -58,7 +58,7 @@ export function HorizontalShowcase() {
 
                 <motion.div style={{ x }} className="flex gap-12 px-24 pl-[40vw]">
                     {projects.map((project, index) => (
-                        <div key={index} className="relative h-[65vh] w-[85vw] md:w-[700px] shrink-0 group rounded-[3rem] overflow-hidden border border-white/5 bg-slate-900/50 backdrop-blur-sm">
+                        <div key={index} className="relative h-[65vh] w-[85vw] md:w-[700px] shrink-0 group glass-panel overflow-hidden">
                             <div className="absolute inset-0 z-0">
                                 <img
                                     src={project.image}

@@ -48,7 +48,16 @@ export function PortfolioMasonry() {
     );
 }
 
-function ParallaxCard({ project, index, progress }: { project: any, index: number, progress: any }) {
+import { MotionValue } from "framer-motion";
+
+interface Project {
+    title: string;
+    category: string;
+    image: string;
+    speed: number;
+}
+
+function ParallaxCard({ project, index, progress }: { project: Project, index: number, progress: MotionValue<number> }) {
     // Each card moves at a different speed based on its project.speed
     const y = useTransform(progress, [0, 1], [0, -index * 150 * project.speed]);
 

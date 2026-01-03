@@ -58,7 +58,7 @@ export function Testimonials() {
                             className="text-center"
                         >
                             <p className="text-xl md:text-2xl font-light leading-relaxed mb-8">
-                                "{testimonials[currentIndex].text}"
+                                &quot;{testimonials[currentIndex].text}&quot;
                             </p>
                             <div>
                                 <h4 className="font-bold text-lg">{testimonials[currentIndex].author}</h4>

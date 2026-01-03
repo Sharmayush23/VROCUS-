@@ -11,9 +11,14 @@ const config: Config = {
             colors: {
                 background: "var(--background)",
                 foreground: "var(--foreground)",
-                primary: "var(--primary)",
-                accent: "var(--accent)",
-                muted: "var(--muted)",
+                "indigo-deep": "var(--indigo-deep)",
+                "blue-royal": "var(--blue-royal)",
+                "orange-vibrant": "var(--orange-vibrant)",
+                "pink-magenta": "var(--pink-magenta)",
+                primary: "var(--indigo-deep)",
+                secondary: "var(--blue-royal)",
+                accent: "var(--orange-vibrant)",
+                muted: "var(--foreground-muted)",
             },
             fontFamily: {
                 sans: ["var(--font-inter)", "sans-serif"],

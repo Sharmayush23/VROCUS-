@@ -30,7 +30,7 @@ export function HeroSection() {
                 >
                     {/* Premium Typography */}
                     <h1 className="text-white font-bold tracking-tight leading-[1.05] text-[clamp(2.5rem,8vw,5.5rem)] text-balance">
-                        Punjab's Best <br />
+                        Punjab&apos;s Best <br />
                         <span className="gradient-text">Marketing Agency</span>
                     </h1>
 

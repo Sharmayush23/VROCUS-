@@ -35,7 +35,7 @@ export const ModularTile: React.FC<ModularTileProps> = ({
         <motion.div
             whileHover={{ y: -4 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className={`relative overflow-hidden group rounded-apple-lg border border-white/10 bg-secondary/50 ${sizeClasses[size]} ${className}`}
+            className={`relative overflow-hidden group glass-panel ${sizeClasses[size]} ${className}`}
         >
             {/* Background Image */}
             {image && (

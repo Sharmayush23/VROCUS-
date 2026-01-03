@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import SmoothScroll from "@/components/ui/SmoothScroll";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -21,18 +23,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={manrope.variable}>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <body
         className="antialiased flex flex-col min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-white selection:text-black"
         suppressHydrationWarning
       >
-        <SmoothScroll>
-          <Navbar />
-          <main className="flex-grow w-full relative z-10">
-            {children}
-          </main>
-          <Footer />
-        </SmoothScroll>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <SmoothScroll>
+            <Navbar />
+            <main className="flex-grow w-full relative z-10">
+              {children}
+            </main>
+            <Footer />
+          </SmoothScroll>
+        </ThemeProvider>
       </body>
     </html>
   );
