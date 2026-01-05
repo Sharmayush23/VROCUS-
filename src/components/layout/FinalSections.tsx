@@ -108,7 +108,7 @@ export function Footer() {
                     className="bg-[#050505] border-t border-white/10 p-12 lg:p-20 xl:px-32 relative overflow-hidden w-full"
                 >
                     {/* Background Noise */}
-                    <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] pointer-events-none" />
+                    <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
 
                     <div className="grid grid-cols-1 xl:grid-cols-5 gap-16 xl:gap-8 relative z-10 w-full">
                         {/* Column 1: Brand & Social */}

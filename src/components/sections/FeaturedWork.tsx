@@ -1,10 +1,9 @@
 "use client";
 
-import React from "react";
-import { Work3DCarousel } from "./Work3DCarousel";
+import { WorkSwiper } from "./WorkSwiper";
 
 export const FeaturedWork = () => {
     return (
-        <Work3DCarousel />
+        <WorkSwiper />
     );
 };

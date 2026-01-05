@@ -22,7 +22,7 @@ export default function CoursePage() {
     return (
         <main className="bg-black min-h-screen text-white relative overflow-hidden">
             {/* Background Texture/Noise */}
-            <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] pointer-events-none" />
+            <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
 
             {/* Ambient Glows */}
             <div className={`absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-r ${PRIMARY_GRADIENT} opacity-20 blur-[150px] rounded-full pointer-events-none`} />

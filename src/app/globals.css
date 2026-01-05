@@ -193,6 +193,74 @@ body {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     mix-blend-mode: overlay;
   }
+
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+}
+
+/* Instagram Embed Styling */
+.instagram-embed-container {
+  min-height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  margin: 1rem;
+}
+
+.instagram-media {
+  max-width: 100% !important;
+  min-width: 100% !important;
+  margin: 0 !important;
+}
+
+/* Override Instagram's default styles to match dark theme */
+.instagram-media iframe {
+  background: transparent !important;
+}
+
+/* Loading state for Instagram embeds */
+.instagram-embed-container:empty::after {
+  content: "Loading Reel...";
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Video Only Cropping for 3D Carousel */
+.instagram-video-only-container {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: black;
+}
+
+/* Masking the Instagram header and footer */
+.instagram-video-only-container iframe {
+  width: 100% !important;
+  height: 100% !important;
+  /* Scale up to allow aggressive cropping */
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -52%) scale(1.65) !important;
+  border: none !important;
+  min-width: 100% !important;
+  filter: contrast(1.05) brightness(1.05);
+}
+
+/* Ensure the background of the iframe doesn't show white flashes */
+.instagram-media,
+.instagram-media-rendered {
+  background: black !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* Smooth Scroll */

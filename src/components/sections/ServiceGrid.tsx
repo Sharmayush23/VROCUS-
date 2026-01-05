@@ -20,7 +20,7 @@ const services = [
     },
     {
         icon: Layers,
-        title: "AR / VR Experiences",
+        title: "AI and Automation",
         description: "Immersive augmented and virtual reality solutions that bridge the gap between the digital and physical worlds.",
         tags: ["WebAR", "Virtual Showrooms", "Interactive"],
         id: "03"

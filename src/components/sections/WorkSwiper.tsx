@@ -1,8 +1,8 @@
 "use client";
 
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
-import React from "react";
 import {
     Autoplay,
     EffectCoverflow,
@@ -17,72 +17,173 @@ import "swiper/css";
 import "swiper/css/effect-cards";
 
 import { cn } from "@/lib/utils";
+import { clientsData } from "@/data/clients-data";
+
+// Flatten all reels from clientsData into a single array for the carousel
+const allReels = clientsData.flatMap(client =>
+    client.featuredReels.map(reel => ({
+        ...reel,
+        clientName: client.clientName,
+        instagramHandle: client.instagramHandle,
+        category: client.category,
+        brandColor: client.brandColor || "#F27C2C"
+    }))
+);
+
+// Brand Gradients
+const ACCENT_GRADIENT = "from-[#F5B21A] via-[#F27C2C] via-[#E64545] via-[#6BCF63] to-[#2FB9C3]";
+const PRIMARY_GRADIENT = "from-[#1E2A4A] via-[#1F6ED4] to-[#16A1B5]";
 
 export const WorkSwiper = () => {
-    const images = [
-        {
-            src: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000",
-            alt: "Cyberpunk Project 1",
-        },
-        {
-            src: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1000",
-            alt: "Neon City",
-        },
-        {
-            src: "https://images.unsplash.com/photo-1635830625698-3b9bd74671ca?q=80&w=1000",
-            alt: "Digital Art",
-        },
-        {
-            src: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000",
-            alt: "Tech Circuit",
-        },
-        {
-            src: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000",
-            alt: "Retro Future",
-        },
-        {
-            src: "https://images.unsplash.com/photo-1515630278258-407f66498911?q=80&w=1000",
-            alt: "Vaporwave",
-        },
-    ];
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    // Load Instagram embed script
+    useEffect(() => {
+        if (!(window as any).instgrm) {
+            const script = document.createElement("script");
+            script.src = "https://www.instagram.com/embed.js";
+            script.async = true;
+            script.onload = () => {
+                setIsLoaded(true);
+                (window as any).instgrm?.Embeds?.process();
+            };
+            document.body.appendChild(script);
+        } else {
+            setIsLoaded(true);
+            (window as any).instgrm?.Embeds?.process();
+        }
+    }, []);
+
+    // Re-process embeds when Swiper changes or loads
+    const onSwiperTransition = () => {
+        if (isLoaded && (window as any).instgrm) {
+            (window as any).instgrm.Embeds.process();
+        }
+    };
 
     return (
-        <div className="flex h-screen w-full items-center justify-center overflow-hidden bg-background">
-            <Carousel_001 className="w-full max-w-5xl" images={images} showPagination loop showNavigation autoplay />
+        <div className="relative w-full py-20 overflow-hidden min-h-[900px] flex flex-col justify-center bg-black">
+            {/* Ambient Glows */}
+            <div className={`absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br ${PRIMARY_GRADIENT} opacity-10 blur-[120px] rounded-full pointer-events-none`} />
+
+            <div className="container mx-auto relative z-10 px-4">
+                {/* Header */}
+                <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 text-center md:text-left">
+                    <div>
+                        <motion.span
+                            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+                            className={`text-transparent bg-clip-text bg-gradient-to-r ${PRIMARY_GRADIENT} font-mono text-sm uppercase tracking-widest block mb-4 font-bold`}
+                        >
+                            Live Work Showcase
+                        </motion.span>
+                        <h2 className="text-4xl md:text-7xl font-bold text-white uppercase tracking-tighter leading-none mb-4 md:mb-0">
+                            Client <br /> <span className={`text-transparent bg-clip-text bg-gradient-to-r ${ACCENT_GRADIENT}`}>Reels.</span>
+                        </h2>
+                    </div>
+                </div>
+
+                <Carousel_001
+                    className="w-full"
+                    reels={allReels}
+                    showPagination
+                    loop
+                    showNavigation
+                    autoplay
+                    onTransitionEnd={onSwiperTransition}
+                />
+            </div>
         </div>
     );
 };
 
 const Carousel_001 = ({
-    images,
+    reels,
     className,
     showPagination = false,
     showNavigation = false,
     loop = true,
     autoplay = false,
-    spaceBetween = 40,
+    spaceBetween = 0,
+    onTransitionEnd,
 }: {
-    images: { src: string; alt: string }[];
+    reels: any[];
     className?: string;
     showPagination?: boolean;
     showNavigation?: boolean;
     loop?: boolean;
     autoplay?: boolean;
     spaceBetween?: number;
+    onTransitionEnd?: () => void;
 }) => {
     const css = `
-  .Carousal_001 {
-    padding-bottom: 50px !important;
-  }
-  .swiper-pagination-bullet {
-    background: white !important;
-    opacity: 0.5;
-  }
-  .swiper-pagination-bullet-active {
-    background: #F28C2D !important;
-    opacity: 1;
-  }
-  `;
+    .Carousal_001 {
+        padding-bottom: 80px !important;
+        padding-top: 50px !important;
+    }
+    .swiper-pagination-bullet {
+        background: white !important;
+        opacity: 0.3;
+        width: 12px;
+        height: 6px;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+    .swiper-pagination-bullet-active {
+        background: #F27C2C !important;
+        opacity: 1;
+        width: 32px;
+    }
+    
+    /* Instagram Crop Styling */
+    .instagram-crop-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #000;
+        border-radius: 24px;
+    }
+
+    /* Target the iframe and shift it to hide header/footer */
+    /* We focus on the inner video area by using a taller iframe and cropping the top/bottom */
+    .instagram-crop-container iframe {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -52%) scale(1.65) !important; /* Zoom in aggressively to hide UI */
+        width: 100% !important;
+        height: 100% !important;
+        border: none !important;
+        filter: contrast(1.05) brightness(1.05); /* Slight aesthetic boost */
+    }
+
+    /* Overlay to block interaction and extra UI elements */
+    .instagram-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 10;
+        background: transparent;
+        pointer-events: none;
+    }
+
+    .swiper-slide {
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        filter: grayscale(100%);
+        opacity: 0.4;
+        transform: scale(0.85);
+    }
+    .swiper-slide-active {
+        filter: grayscale(0%);
+        opacity: 1;
+        transform: scale(1);
+        z-index: 20;
+    }
+    .swiper-slide-active .instagram-crop-container {
+        box-shadow: 0 20px 50px -10px rgba(242, 124, 44, 0.3);
+        border: 2px solid rgba(242, 124, 44, 0.5);
+    }
+    `;
+
     return (
         <motion.div
             initial={{ opacity: 0, translateY: 20 }}
@@ -91,7 +192,7 @@ const Carousel_001 = ({
                 duration: 0.3,
                 delay: 0.5,
             }}
-            className={cn("w-full relative px-4", className)}
+            className={cn("w-full relative", className)}
         >
             <style>{css}</style>
 
@@ -100,7 +201,7 @@ const Carousel_001 = ({
                 autoplay={
                     autoplay
                         ? {
-                            delay: 2500,
+                            delay: 4000,
                             disableOnInteraction: false,
                         }
                         : false
@@ -109,17 +210,19 @@ const Carousel_001 = ({
                 grabCursor={true}
                 centeredSlides={true}
                 loop={loop}
-                slidesPerView={1.5}
+                slidesPerView={1.2}
+                onTransitionEnd={onTransitionEnd}
+                onSlideChange={onTransitionEnd}
                 breakpoints={{
                     640: { slidesPerView: 2 },
-                    1024: { slidesPerView: 2.5 }
+                    1024: { slidesPerView: 3 }
                 }}
                 coverflowEffect={{
                     rotate: 0,
-                    slideShadows: false,
                     stretch: 0,
                     depth: 100,
                     modifier: 2.5,
+                    slideShadows: false,
                 }}
                 pagination={
                     showPagination
@@ -139,26 +242,33 @@ const Carousel_001 = ({
                 className="Carousal_001 !overflow-visible"
                 modules={[EffectCoverflow, Autoplay, Pagination, Navigation]}
             >
-                {images.map((image, index) => (
-                    <SwiperSlide key={index} className="!h-[400px] md:!h-[500px] w-full border border-white/10 rounded-2xl overflow-hidden glass-panel">
-                        <img
-                            className="h-full w-full object-cover"
-                            src={image.src}
-                            alt={image.alt}
-                        />
-                        <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                            <h3 className="text-xl font-bold text-white">Project {index + 1}</h3>
+                {reels.map((reel, index) => (
+                    <SwiperSlide key={index} className="aspect-[9/16] rounded-[32px] overflow-hidden bg-black/40 backdrop-blur-sm border border-white/10 shadow-2xl transition-all duration-500">
+                        <div className="instagram-crop-container">
+                            <iframe
+                                src={`${reel.url.endsWith('/') ? reel.url : reel.url + '/'}embed/`}
+                                className="w-full h-full border-0"
+                            />
+                            {/* Mask/Overlay to ensure focus remains on slide navigation and hide embed UI */}
+                            <div className="instagram-overlay pointer-events-none" />
+                        </div>
+
+                        {/* Info Overlay */}
+                        <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-20 pointer-events-none">
+                            <p className="text-orange-400 font-mono text-[10px] uppercase tracking-wider mb-1">{reel.category}</p>
+                            <h3 className="text-lg font-bold text-white leading-tight">{reel.clientName}</h3>
                         </div>
                     </SwiperSlide>
                 ))}
+
                 {showNavigation && (
-                    <div className="hidden md:block">
-                        <div className="swiper-button-next after:hidden !text-orange-vibrant right-0">
-                            <ChevronRightIcon className="h-10 w-10 drop-shadow-lg" />
-                        </div>
-                        <div className="swiper-button-prev after:hidden !text-orange-vibrant left-0">
-                            <ChevronLeftIcon className="h-10 w-10 drop-shadow-lg" />
-                        </div>
+                    <div className="flex justify-center gap-6 mt-8">
+                        <button className="swiper-button-prev static !w-14 !h-14 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/5 hover:border-white/20 transition-all after:hidden">
+                            <ChevronLeftIcon className="w-6 h-6" />
+                        </button>
+                        <button className="swiper-button-next static !w-14 !h-14 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/5 hover:border-white/20 transition-all after:hidden">
+                            <ChevronRightIcon className="w-6 h-6" />
+                        </button>
                     </div>
                 )}
             </Swiper>

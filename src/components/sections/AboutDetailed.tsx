@@ -97,7 +97,7 @@ export function AboutDetailed() {
 
                             <div className="relative bg-[#050505]/90 backdrop-blur-xl p-12 rounded-[29px] overflow-hidden">
                                 {/* Decorative Texture */}
-                                <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] pointer-events-none" />
+                                <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
 
                                 <h3 className="text-3xl font-bold uppercase mb-12 relative z-10 text-white">
                                     Defined by <br />

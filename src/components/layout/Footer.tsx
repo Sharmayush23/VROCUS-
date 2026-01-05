@@ -16,7 +16,7 @@ export function Footer() {
     return (
         <footer className="bg-black text-white pt-32 pb-12 relative overflow-hidden selection:bg-[#F5B21A] selection:text-black">
             {/* Background Texture/Noise */}
-            <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] pointer-events-none" />
+            <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
 
             {/* Ambient Glow */}
             <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-gradient-to-r ${PRIMARY_GRADIENT} opacity-10 blur-[120px] rounded-full pointer-events-none`} />

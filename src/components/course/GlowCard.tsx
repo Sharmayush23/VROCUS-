@@ -27,7 +27,7 @@ export const GlowCard = ({ children, className, glowColor = "grey" }: GlowCardPr
             <div className="relative z-10 p-6 h-full">{children}</div>
 
             {/* Background Noise/Texture */}
-            <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] pointer-events-none" />
+            <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
 
             {/* Inner Gradient */}
             <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
