@@ -62,7 +62,7 @@ export const WorkSwiper = () => {
     };
 
     return (
-        <div className="relative w-full py-20 overflow-hidden min-h-[900px] flex flex-col justify-center bg-black">
+        <div className="relative w-full py-20 overflow-hidden min-h-[700px] flex flex-col justify-center bg-black">
             {/* Ambient Glows */}
             <div className={`absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br ${PRIMARY_GRADIENT} opacity-10 blur-[120px] rounded-full pointer-events-none`} />
 
@@ -86,9 +86,9 @@ export const WorkSwiper = () => {
                     className="w-full"
                     reels={allReels}
                     showPagination
-                    loop
+                    loop={true}
                     showNavigation
-
+                    autoplay={false}
                     onTransitionEnd={onSwiperTransition}
                 />
             </div>
@@ -150,7 +150,7 @@ const Carousel_001 = ({
         position: absolute !important;
         top: 50% !important;
         left: 50% !important;
-        transform: translate(-50%, -52%) scale(1.65) !important; /* Zoom in aggressively to hide UI */
+        transform: translate(-50%, -50%) scale(1.4) !important; /* Increased zoom for impact */
         width: 100% !important;
         height: 100% !important;
         border: none !important;
@@ -210,12 +210,12 @@ const Carousel_001 = ({
                 grabCursor={true}
                 centeredSlides={true}
                 loop={loop}
-                slidesPerView={1.2}
+                slidesPerView={1.5}
                 onTransitionEnd={onTransitionEnd}
                 onSlideChange={onTransitionEnd}
                 breakpoints={{
-                    640: { slidesPerView: 2 },
-                    1024: { slidesPerView: 3 }
+                    640: { slidesPerView: 2.5 },
+                    1024: { slidesPerView: 4.5 }
                 }}
                 coverflowEffect={{
                     rotate: 0,

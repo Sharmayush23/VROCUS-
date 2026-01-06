@@ -62,8 +62,21 @@ export function Work3DCarousel() {
         }
     }, [activeIndex, isLoaded]);
 
+    const css = `
+    .instagram-video-only-container iframe {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) scale(1.4) !important;
+        width: 100% !important;
+        height: 100% !important;
+        border: none !important;
+    }
+    `;
+
     return (
-        <div className="relative w-full py-20 overflow-hidden min-h-[900px] flex flex-col justify-center bg-black">
+        <div className="relative w-full py-20 overflow-hidden min-h-[700px] flex flex-col justify-center bg-black">
+            <style>{css}</style>
             {/* Reactive Gradient Background */}
             <motion.div
                 animate={{
@@ -103,7 +116,7 @@ export function Work3DCarousel() {
 
                 {/* 3D Carousel Stage - Drag Enabled */}
                 <motion.div
-                    className="relative h-[650px] w-full flex items-center justify-center perspective-[2000px] cursor-grab active:cursor-grabbing"
+                    className="relative h-[500px] w-full flex items-center justify-center perspective-[2000px] cursor-grab active:cursor-grabbing"
                     drag="x"
                     dragConstraints={{ left: 0, right: 0 }}
                     onDragEnd={onDragEnd}
@@ -120,7 +133,7 @@ export function Work3DCarousel() {
                                 <motion.div
                                     key={`${reel.url}-${index}`}
                                     className={cn(
-                                        "absolute w-[280px] md:w-[350px] aspect-[9/16] rounded-[30px] overflow-hidden shadow-2xl transition-all duration-500",
+                                        "absolute w-[220px] md:w-[280px] aspect-[9/16] rounded-[30px] overflow-hidden shadow-2xl transition-all duration-500",
                                         isActive ? "z-30 border-2 border-orange-500/50 shadow-orange-500/20" : "z-10 grayscale opacity-40 border border-white/10"
                                     )}
                                     initial={{
