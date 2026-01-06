@@ -88,7 +88,7 @@ export const WorkSwiper = () => {
                     showPagination
                     loop
                     showNavigation
-                    autoplay
+
                     onTransitionEnd={onSwiperTransition}
                 />
             </div>
