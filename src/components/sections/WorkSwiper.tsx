@@ -263,11 +263,11 @@ const Carousel_001 = ({
 
                 {showNavigation && (
                     <div className="flex justify-center gap-6 mt-8">
-                        <button className="swiper-button-prev static !w-14 !h-14 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/5 hover:border-white/20 transition-all after:hidden">
-                            <ChevronLeftIcon className="w-6 h-6" />
+                        <button className="swiper-button-prev static !w-10 !h-10 sm:!w-14 sm:!h-14 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/5 hover:border-white/20 transition-all after:hidden">
+                            <ChevronLeftIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                         </button>
-                        <button className="swiper-button-next static !w-14 !h-14 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/5 hover:border-white/20 transition-all after:hidden">
-                            <ChevronRightIcon className="w-6 h-6" />
+                        <button className="swiper-button-next static !w-10 !h-10 sm:!w-14 sm:!h-14 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/5 hover:border-white/20 transition-all after:hidden">
+                            <ChevronRightIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                         </button>
                     </div>
                 )}

@@ -50,27 +50,27 @@ export function Navbar() {
                     y: headerY,
                     scale: headerScale,
                 }}
-                className="fixed top-4 left-0 w-full z-50 px-6 md:px-12 pointer-events-none"
+                className="fixed top-2 sm:top-4 left-0 w-full z-50 px-4 sm:px-6 md:px-12 pointer-events-none"
             >
                 <div className="container mx-auto max-w-7xl">
                     <motion.div
                         style={{ backgroundColor: headerBg }}
-                        className="flex items-center justify-between glass-panel noise-overlay px-6 py-3 rounded-full pointer-events-auto bg-white/90 dark:bg-black/40 border border-black/10 dark:border-white/10"
+                        className="flex items-center justify-between glass-panel noise-overlay px-4 sm:px-6 py-2 sm:py-3 rounded-full pointer-events-auto bg-white/90 dark:bg-black/80 backdrop-blur-md border border-black/10 dark:border-white/10 shadow-lg shadow-black/5"
                     >
                         {/* Logo */}
-                        <Link href="/" className="relative flex items-center gap-2 group transition-opacity hover:opacity-80 py-1 min-w-[140px]">
+                        <Link href="/" className="relative flex items-center gap-2 group transition-opacity hover:opacity-80 py-1 min-w-[120px] sm:min-w-[140px]">
                             <div className={`absolute inset-0 bg-gradient-to-r ${PRIMARY_GRADIENT} blur-xl rounded-full scale-150 opacity-0 group-hover:opacity-40 transition-opacity duration-500`} />
-                            <div className="relative w-16 h-16 overflow-hidden flex items-center">
+                            <div className="relative w-12 h-12 sm:w-16 sm:h-16 overflow-hidden flex items-center">
                                 <Image
                                     src="/logo.png"
                                     alt="VROCUS Logo"
                                     fill
-                                    sizes="64px"
+                                    sizes="(max-width: 640px) 48px, 64px"
                                     className="object-contain"
                                     priority
                                 />
                             </div>
-                            <span className={`text-2xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r ${PRIMARY_GRADIENT} uppercase italic`}>VROCUS</span>
+                            <span className={`text-xl sm:text-2xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r ${PRIMARY_GRADIENT} uppercase italic`}>VROCUS</span>
                         </Link>
 
                         {/* Desktop Nav with Hover Pill Animation */}
@@ -135,13 +135,13 @@ export function Navbar() {
                             {/* Mobile Menu Toggle */}
                             <button
                                 onClick={() => setIsMenuOpen(true)}
-                                className="lg:hidden p-2 text-black dark:text-white hover:opacity-70"
+                                className="lg:hidden p-2 text-black dark:text-white hover:opacity-70 bg-black/5 dark:bg-white/5 rounded-full transition-all active:scale-90"
                                 style={{
                                     transitionDuration: 'var(--transition-fast)',
                                     transitionTimingFunction: 'var(--ease-smooth)',
                                 }}
                             >
-                                <Menu className="w-5 h-5" />
+                                <Menu className="w-6 h-6 stroke-[2.5]" />
                             </button>
                         </div>
                     </motion.div>

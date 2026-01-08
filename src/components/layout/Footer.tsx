@@ -14,7 +14,7 @@ export function Footer() {
     };
 
     return (
-        <footer className="bg-black text-white pt-32 pb-12 relative overflow-hidden selection:bg-[#F5B21A] selection:text-black">
+        <footer className="bg-black text-white pt-16 sm:pt-32 pb-12 relative overflow-hidden selection:bg-[#F5B21A] selection:text-black">
             {/* Background Texture/Noise */}
             <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
 
@@ -32,7 +32,7 @@ export function Footer() {
                         <span className="font-bold text-lg tracking-wide text-[#F5B21A]">GET IN TOUCH</span>
                     </div>
 
-                    <h2 className="text-5xl md:text-7xl font-bold tracking-tighter leading-[1.1] mb-16 text-white max-w-4xl">
+                    <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter leading-[1.1] mb-12 sm:mb-16 text-white max-w-4xl">
                         Let's create something <span className={`text-transparent bg-clip-text bg-gradient-to-r ${ACCENT_GRADIENT}`}>amazing together</span>
                     </h2>
 
@@ -93,7 +93,7 @@ export function Footer() {
                 </div>
 
                 {/* Grid Columns */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 border-t border-white/10 pt-20">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 border-t border-white/10 pt-16 sm:pt-20">
 
                     {/* Column 1: Contact */}
                     <div className="space-y-6">

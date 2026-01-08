@@ -13,21 +13,21 @@ const PRIMARY_GRADIENT = "from-[#1E2A4A] via-[#1F6ED4] to-[#16A1B5]";
 export function Testimonials() {
     const reviews = [
         {
-            name: "Priya Sharma",
-            role: "Founder, Luxe Mumbai",
-            text: "VROCUS redefined our digital presence. Their creative strategy turned our brand into a household name within months.",
-            image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2574&auto=format&fit=crop"
+            name: "Sarah Jenkins",
+            role: "CMO, TechNova",
+            text: "We didn't just want views; we wanted domination. VROCUS delivered a 400% increase in lead quality within 30 days. Their aggressive creative strategy forced the market to pay attention.",
+            image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2670&auto=format&fit=crop"
         },
         {
-            name: "Rajesh Patel",
-            role: "CEO, TechFlow Solutions",
-            text: "The performance marketing results were staggering. We saw a 4x increase in lead quality and a significant drop in CAC.",
-            image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2670&auto=format&fit=crop"
+            name: "David Chen",
+            role: "Founder, GrowthBox",
+            text: "Absolute visual anarchy in the best way possible. They took our stale corporate identity and injected it with raw, futuristic energy. Now, our brand doesn't just speak; it screams premium.",
+            image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2670&auto=format&fit=crop"
         },
         {
-            name: "Ananya Iyer",
-            role: "Director, Green Horizon",
-            text: "Their ability to blend high-end creative with data insights is what sets them apart. They don't just make it look good; they make it work.",
+            name: "Elena Rodriguez",
+            role: "Director, ArtFlow",
+            text: "Execution at the speed of light. VROCUS doesn't follow trends; they architect them. Our entire digital footprint is now a masterclass in high-conversion storytelling.",
             image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2670&auto=format&fit=crop"
         }
     ];
