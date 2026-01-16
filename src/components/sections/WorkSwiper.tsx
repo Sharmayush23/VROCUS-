@@ -215,11 +215,7 @@ const Carousel_001 = ({
                             />
                         </div>
 
-                        {/* Info Overlay */}
-                        <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-20 pointer-events-none">
-                            <p className="text-orange-400 font-mono text-[10px] uppercase tracking-wider mb-1">{video.category}</p>
-                            <h3 className="text-lg font-bold text-white leading-tight">{video.title}</h3>
-                        </div>
+                        {/* Info Overlay - Removed as requested */}
                     </SwiperSlide>
                 ))}
 

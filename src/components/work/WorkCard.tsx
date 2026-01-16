@@ -82,20 +82,10 @@ export const WorkCard = ({ item, className, aspectRatio = "video" }: WorkCardPro
                     )}
                 </div>
 
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300" />
+                {/* Gradient Overlay - Removed to keep video clean */}
+                {/* <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300" /> */}
 
-                {/* Content Info */}
-                <div className="absolute bottom-0 left-0 w-full p-3">
-                    <div className="flex items-center gap-2 mb-1">
-                        <span className="px-2 py-0.5 rounded-full bg-orange-500/20 text-[9px] font-bold uppercase tracking-wider text-orange-400 backdrop-blur-md border border-orange-500/30">
-                            {item.category || "Creative"}
-                        </span>
-                    </div>
-                    <h3 className="text-white font-bold text-sm leading-tight line-clamp-1">
-                        {item.title || item.name.replace(/\.[^/.]+$/, "").replace(/video/i, "Project ").replace(/[-_]/g, " ")}
-                    </h3>
-                </div>
+                {/* Content Info - Removed as requested */}
             </div>
         </motion.div>
     );

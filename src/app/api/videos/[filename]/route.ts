@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 
-const ASSETS_DIR = "f:\\portfolio website\\assets\\work";
+const ASSETS_DIR = path.join(process.cwd(), "public", "work");
 
 function getMimeType(filename: string): string {
     const ext = path.extname(filename).toLowerCase();
