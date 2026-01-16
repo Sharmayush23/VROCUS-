@@ -65,10 +65,10 @@ export function InstagramStats() {
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-3xl md:text-5xl font-bold text-white mb-4"
+                        className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 uppercase tracking-tighter leading-none"
                     >
-                        Instagram Pages <br />
-                        <span className={`text-transparent bg-clip-text bg-gradient-to-r ${PRIMARY_GRADIENT}`}>Powered by VROCUS</span>
+                        Instagram <br />
+                        <span className={`text-transparent bg-clip-text bg-gradient-to-r ${PRIMARY_GRADIENT}`}>Ecosystem.</span>
                     </motion.h2>
 
                     <motion.p

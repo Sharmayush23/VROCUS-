@@ -55,7 +55,21 @@ export function DetailedServices() {
             <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#E64545]/10 blur-[150px] rounded-full pointer-events-none" />
 
             <div className="container mx-auto relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                <div className="text-center mb-20">
+                    <motion.span
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        className={`text-transparent bg-clip-text bg-gradient-to-r ${PRIMARY_GRADIENT} font-mono text-sm uppercase tracking-widest block mb-4 font-bold`}
+                    >
+                        Our Capabilities
+                    </motion.span>
+                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tighter leading-none text-white">
+                        Precision <br />
+                        <span className={`text-transparent bg-clip-text bg-gradient-to-r ${ACCENT_GRADIENT}`}>Systems.</span>
+                    </h2>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {services.map((service, index) => (
                         <motion.div
                             key={index}

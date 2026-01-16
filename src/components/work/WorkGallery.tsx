@@ -63,30 +63,14 @@ export const WorkGallery = () => {
         );
     }
 
-    // Split items for different sections - slightly adjusted counts
-    const featuredItems = items.slice(0, 4);
-    const popularItems = items.slice(4, 14);
-    const exploreItems = items.slice(14);
+    // Split items for different sections
+    // Popular: First 10
+    // Explore: Rest
+    const popularItems = items.slice(0, 10);
+    const exploreItems = items.slice(10);
 
     return (
         <section className="container mx-auto px-4 py-16 relative z-10">
-            {/* Featured Section - Smaller Grid */}
-            <div className="mb-20">
-                <div className="flex items-center justify-between mb-6">
-                    <h2 className="text-2xl md:text-4xl font-bold text-white uppercase tracking-tighter">Featured <span className="text-orange-500">Works</span></h2>
-                </div>
-
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {featuredItems.map((item) => (
-                        <WorkCard
-                            key={item.name}
-                            item={item}
-                            aspectRatio="video"
-                        />
-                    ))}
-                </div>
-            </div>
-
             {/* Popular / Recent (Auto-scrolling Swiper) */}
             {popularItems.length > 0 && (
                 <div className="mb-20">

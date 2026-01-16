@@ -29,13 +29,13 @@ export function HeroSection() {
                     className="flex flex-col items-center text-center space-y-12 max-w-4xl"
                 >
                     {/* Premium Typography */}
-                    <h1 className="text-white font-bold tracking-tight leading-[1.05] text-[clamp(2.5rem,8vw,5.5rem)] text-balance">
-                        Punjab&apos;s Best <br />
-                        <span className="gradient-text">Marketing Agency</span>
+                    <h1 className="text-white font-bold tracking-tight leading-[1.05] text-[clamp(2.5rem,8vw,6rem)] text-balance uppercase">
+                        Marketing Without <br />
+                        <span className="gradient-text">Borders</span>
                     </h1>
 
                     <p className="text-muted text-lg md:text-xl max-w-2xl mx-auto font-medium leading-relaxed opacity-80">
-                        Trusted by the <strong>Khanna Police</strong> and top brands. We grow followers from <strong>200 to 120k</strong> and turn engagement into pure profit.
+                        Top-tier results for personal brands and industry leaders. We grow followers from <strong>200 to 120k</strong> and turn engagement into pure impact.
                     </p>
 
                     {/* Primary CTA Section - Glassmorphic Input */}

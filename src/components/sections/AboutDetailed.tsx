@@ -55,9 +55,9 @@ export function AboutDetailed() {
                         >
                             The VROCUS Standard
                         </motion.span>
-                        <h2 className="text-4xl md:text-7xl font-bold uppercase tracking-tighter leading-none mb-12 text-white">
+                        <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tighter leading-none mb-12 text-white">
                             Strategy <br /> &
-                            <span className={`text-transparent bg-clip-text bg-gradient-to-r ${ACCENT_GRADIENT}`}> Profit.</span>
+                            <span className={`text-transparent bg-clip-text bg-gradient-to-r ${ACCENT_GRADIENT}`}> Impact.</span>
                         </h2>
 
                         <div className="space-y-6">
@@ -76,7 +76,7 @@ export function AboutDetailed() {
                                     <div className="relative bg-[#0A0A0A] p-8 rounded-[11px] border border-white/5 h-full flex items-center gap-6 z-10">
                                         <span className={`text-2xl font-mono font-bold text-transparent bg-clip-text bg-gradient-to-r ${PRIMARY_GRADIENT}`}>{p.number}</span>
                                         <div>
-                                            <h3 className="text-xl font-bold uppercase mb-2 text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-colors">{p.title}</h3>
+                                            <h3 className="text-xl font-bold uppercase mb-2 text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-colors uppercase tracking-tight">{p.title}</h3>
                                             <p className="text-gray-400 text-sm leading-relaxed max-w-md">{p.description}</p>
                                         </div>
                                     </div>
@@ -101,7 +101,7 @@ export function AboutDetailed() {
 
                                 <h3 className="text-3xl font-bold uppercase mb-12 relative z-10 text-white">
                                     Defined by <br />
-                                    <span className={`text-transparent bg-clip-text bg-gradient-to-r ${ACCENT_GRADIENT}`}>Real Growth.</span>
+                                    <span className={`text-transparent bg-clip-text bg-gradient-to-r ${ACCENT_GRADIENT}`}>Real Results.</span>
                                 </h3>
 
                                 <div className="grid grid-cols-2 gap-12 relative z-10">
@@ -129,8 +129,9 @@ export function AboutDetailed() {
                                     transition={{ delay: 1 }}
                                     className="mt-16 text-gray-400 text-sm leading-relaxed max-w-sm relative z-10 font-medium"
                                 >
-                                    From working with the <strong>Khanna Police</strong> to scaling personal brands from 200 followers to over 120k, we focus on one thing: making your brand <span className="text-white font-bold underline decoration-[#F27C2C]">profitable</span>.
+                                    From high-stakes niches like <strong>Finance</strong> and <strong>Fitness</strong> to creative realms like <strong>Sound Healing</strong>, we scale brands from 200 followers to 120k+ with one focus: making your impact <span className="text-white font-bold underline decoration-[#F27C2C]">undeniable</span>.
                                 </motion.p>
+
                             </div>
                         </motion.div>
                     </div>

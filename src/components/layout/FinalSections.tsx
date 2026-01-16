@@ -95,7 +95,7 @@ export function Testimonials() {
                     >
                         Client Success
                     </motion.span>
-                    <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tighter text-white">
+                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tighter text-white leading-none">
                         Voices of <br />
                         <span className={`text-transparent bg-clip-text bg-gradient-to-r ${ACCENT_GRADIENT}`}>
                             Impact.

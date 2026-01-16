@@ -46,7 +46,7 @@ export const WorkSwiper = () => {
                         >
                             Live Work Showcase
                         </motion.span>
-                        <h2 className="text-4xl md:text-7xl font-bold text-white uppercase tracking-tighter leading-none mb-4 md:mb-0">
+                        <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white uppercase tracking-tighter leading-none mb-4 md:mb-0">
                             Client <br /> <span className={`text-transparent bg-clip-text bg-gradient-to-r ${ACCENT_GRADIENT}`}>Reels.</span>
                         </h2>
                     </div>
