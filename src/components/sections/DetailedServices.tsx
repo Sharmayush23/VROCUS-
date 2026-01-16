@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Monitor, Video, Box, Zap, BarChart, Layers, ArrowRight } from "lucide-react";
+import { Monitor, Video, Box, Zap, BarChart, Layers, ArrowRight, Bot } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 // Brand Gradients
@@ -22,10 +22,10 @@ const services = [
         tags: ["Compositing", "Motion Design", "Visual Effects", "Color Grading"],
     },
     {
-        icon: Layers,
-        title: "AR / VR Experiences",
-        description: "Immersive augmented and virtual reality solutions that bridge the gap between the digital and physical worlds.",
-        tags: ["WebAR", "Virtual Showrooms", "Interactive Filters", "Unity/Unreal"],
+        icon: Bot,
+        title: "AI & Automation",
+        description: "Streamline operations and unlock new possibilities with cutting-edge AI solutions and intelligent automation.",
+        tags: ["Generative AI", "Process Automation", "LLM Integration", "Smart Workflows"],
     },
     {
         icon: Monitor,

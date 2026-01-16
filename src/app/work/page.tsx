@@ -1,7 +1,7 @@
 "use client";
 
 import { WorkSwiper } from "@/components/sections/WorkSwiper";
-import { motion } from "framer-motion";
+import { WorkGallery } from "@/components/work/WorkGallery";
 
 // Brand Gradients
 const ACCENT_GRADIENT = "from-[#F5B21A] via-[#F27C2C] via-[#E64545] via-[#6BCF63] to-[#2FB9C3]";
@@ -21,6 +21,9 @@ export default function WorkPage() {
             <div className="relative">
                 <WorkSwiper />
             </div>
+
+            {/* Gallery Showcase (Featured, Popular, Explore) */}
+            <WorkGallery />
 
             {/* Case Studies CTA Section */}
             <section className="container mx-auto px-6 py-24 relative z-10 -mt-20">

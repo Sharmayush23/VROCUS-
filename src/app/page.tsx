@@ -8,6 +8,8 @@ import { Testimonials } from "@/components/layout/FinalSections";
 const ACCENT_GRADIENT = "from-[#F5B21A] via-[#F27C2C] via-[#E64545] via-[#6BCF63] to-[#2FB9C3]";
 const PRIMARY_GRADIENT = "from-[#1E2A4A] via-[#1F6ED4] to-[#16A1B5]";
 
+import { InstagramStats } from "@/components/sections/InstagramStats";
+
 export default function Home() {
   return (
     <div className="flex flex-col relative overflow-hidden bg-black min-h-screen">
@@ -19,7 +21,8 @@ export default function Home() {
       <div className={`absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-gradient-to-r ${ACCENT_GRADIENT} opacity-10 blur-[150px] rounded-full pointer-events-none`} />
 
       <HeroSection />
-      <FeaturedWork />
+      <InstagramStats />
+      {/* <FeaturedWork /> Removed as per user request */}
       <DetailedServices /> {/* Updated Component */}
       <AboutDetailed />
       <Testimonials />

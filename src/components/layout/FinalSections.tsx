@@ -4,49 +4,98 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowUpRight, Instagram, Linkedin, Twitter, Phone as WhatsApp, Facebook } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useRef, useState } from "react";
 
 // Brand Gradients
 const ACCENT_GRADIENT = "from-[#F5B21A] via-[#F27C2C] via-[#E64545] via-[#6BCF63] to-[#2FB9C3]";
 const PRIMARY_GRADIENT = "from-[#1E2A4A] via-[#1F6ED4] to-[#16A1B5]";
 
+// TestimonialCard Component with Hover Autoplay
+function TestimonialCard({ video, delay }: { video: string; delay: number }) {
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const [isHovered, setIsHovered] = useState(false);
+
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+        if (videoRef.current) {
+            videoRef.current.play().catch(e => console.log("Autoplay prevented:", e));
+        }
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+        if (videoRef.current) {
+            videoRef.current.pause();
+            videoRef.current.currentTime = 0;
+        }
+    };
+
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay }}
+            className="group relative"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            whileHover={{ scale: 1.02 }}
+        >
+            {/* Animated Gradient Stroke Border */}
+            <div className="absolute -inset-[2px] rounded-xl bg-gradient-to-r from-orange-500 via-purple-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-sm" />
+
+            {/* Card Container */}
+            <div className="relative w-full h-full rounded-xl overflow-hidden border-2 border-white/10 group-hover:border-transparent transition-all duration-500 bg-black">
+                <div className="aspect-[9/16] w-full relative">
+                    <video
+                        ref={videoRef}
+                        src={video}
+                        className="w-full h-full object-cover"
+                        loop
+                        muted
+                        playsInline
+                        preload="metadata"
+                    />
+                </div>
+            </div>
+        </motion.div>
+    );
+}
+
 // Testimonials Component
 export function Testimonials() {
-    const reviews = [
+    const testimonials = [
         {
-            name: "Sarah Jenkins",
-            role: "CMO, TechNova",
-            text: "We didn't just want views; we wanted domination. VROCUS delivered a 400% increase in lead quality within 30 days. Their aggressive creative strategy forced the market to pay attention.",
-            image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2670&auto=format&fit=crop"
+            id: 1,
+            video: "/testimonials/testimonial1.mp4",
+            poster: "/testimonials/poster1.jpg" // We'll rely on auto-generated posters or video loading for now
         },
         {
-            name: "David Chen",
-            role: "Founder, GrowthBox",
-            text: "Absolute visual anarchy in the best way possible. They took our stale corporate identity and injected it with raw, futuristic energy. Now, our brand doesn't just speak; it screams premium.",
-            image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2670&auto=format&fit=crop"
+            id: 2,
+            video: "/testimonials/testimonial2.mp4",
+            poster: "/testimonials/poster2.jpg"
         },
         {
-            name: "Elena Rodriguez",
-            role: "Director, ArtFlow",
-            text: "Execution at the speed of light. VROCUS doesn't follow trends; they architect them. Our entire digital footprint is now a masterclass in high-conversion storytelling.",
-            image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2670&auto=format&fit=crop"
+            id: 3,
+            video: "/testimonials/testimonial3.mp4",
+            poster: "/testimonials/poster3.jpg"
         }
     ];
 
     return (
-        <section className="bg-black py-32 px-6 relative overflow-hidden">
+        <section className="bg-black py-20 px-6 relative overflow-hidden">
             {/* Ambient Background Glow */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#F27C2C]/10 blur-[120px] rounded-full opacity-40 pointer-events-none" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#F27C2C]/10 blur-[100px] rounded-full opacity-30 pointer-events-none" />
 
             <div className="container mx-auto relative z-10">
-                <div className="text-center mb-20">
+                <div className="text-center mb-12">
                     <motion.span
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
-                        className={`text-transparent bg-clip-text bg-gradient-to-r ${ACCENT_GRADIENT} font-mono text-sm uppercase tracking-widest block mb-4 font-bold`}
+                        className={`text-transparent bg-clip-text bg-gradient-to-r ${ACCENT_GRADIENT} font-mono text-xs uppercase tracking-widest block mb-3 font-bold`}
                     >
                         Client Success
                     </motion.span>
-                    <h2 className="text-4xl md:text-7xl font-bold uppercase tracking-tighter text-white">
+                    <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tighter text-white">
                         Voices of <br />
                         <span className={`text-transparent bg-clip-text bg-gradient-to-r ${ACCENT_GRADIENT}`}>
                             Impact.
@@ -54,39 +103,9 @@ export function Testimonials() {
                     </h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {reviews.map((r, i) => (
-                        <motion.div
-                            key={i}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: i * 0.1 }}
-                            className="group relative"
-                        >
-                            {/* Gradient Border Wrapper */}
-                            <div className={`absolute inset-0 rounded-[22px] bg-gradient-to-r ${ACCENT_GRADIENT} opacity-30 group-hover:opacity-100 blur-[1px] transition-opacity duration-500`} />
-
-                            {/* Card Content */}
-                            <div className="relative h-full bg-[#0A0A0A] rounded-[20px] p-10 flex flex-col border border-white/5 transition-transform duration-300 group-hover:-translate-y-1">
-                                <div className="flex items-center gap-1 mb-8">
-                                    {[1, 2, 3, 4, 5].map(s => (
-                                        <svg key={s} className="w-4 h-4 text-[#F5B21A] fill-current" viewBox="0 0 20 20">
-                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                        </svg>
-                                    ))}
-                                </div>
-                                <p className="text-lg text-gray-300 font-medium italic mb-10 leading-relaxed group-hover:text-white transition-colors">
-                                    "{r.text}"
-                                </p>
-                                <div className="mt-auto flex items-center gap-4 pt-8 border-t border-white/10">
-                                    <img src={r.image} className="w-14 h-14 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300 ring-2 ring-transparent group-hover:ring-[#F27C2C]" alt={r.name} />
-                                    <div>
-                                        <h4 className="font-bold uppercase tracking-tight text-white">{r.name}</h4>
-                                        <p className={`text-xs font-bold uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r ${ACCENT_GRADIENT}`}>{r.role}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+                    {testimonials.map((t, i) => (
+                        <TestimonialCard key={t.id} video={t.video} delay={i * 0.1} />
                     ))}
                 </div>
             </div>

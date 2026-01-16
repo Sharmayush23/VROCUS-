@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import {
@@ -14,53 +14,23 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css";
-import "swiper/css/effect-cards";
 
 import { cn } from "@/lib/utils";
-import { clientsData } from "@/data/clients-data";
 
-// Flatten all reels from clientsData into a single array for the carousel
-const allReels = clientsData.flatMap(client =>
-    client.featuredReels.map(reel => ({
-        ...reel,
-        clientName: client.clientName,
-        instagramHandle: client.instagramHandle,
-        category: client.category,
-        brandColor: client.brandColor || "#F27C2C"
-    }))
-);
+// Specific videos requested by the user
+const CAROUSEL_VIDEOS = [
+    { url: "/api/videos/video4.mp4", category: "Commercial", title: "Visual Narrative" },
+    { url: "/api/videos/video12.mp4", category: "3D Art", title: "Digital Sculpting" },
+    { url: "/api/videos/video28.mp4", category: "VFX", title: "CGI Environments" },
+    { url: "/api/videos/video32.mp4", category: "Motion", title: "Dynamic Systems" },
+    { url: "/api/videos/video37.mp4", category: "Social", title: "Brand Story" },
+];
 
 // Brand Gradients
 const ACCENT_GRADIENT = "from-[#F5B21A] via-[#F27C2C] via-[#E64545] via-[#6BCF63] to-[#2FB9C3]";
 const PRIMARY_GRADIENT = "from-[#1E2A4A] via-[#1F6ED4] to-[#16A1B5]";
 
 export const WorkSwiper = () => {
-    const [isLoaded, setIsLoaded] = useState(false);
-
-    // Load Instagram embed script
-    useEffect(() => {
-        if (!(window as any).instgrm) {
-            const script = document.createElement("script");
-            script.src = "https://www.instagram.com/embed.js";
-            script.async = true;
-            script.onload = () => {
-                setIsLoaded(true);
-                (window as any).instgrm?.Embeds?.process();
-            };
-            document.body.appendChild(script);
-        } else {
-            setIsLoaded(true);
-            (window as any).instgrm?.Embeds?.process();
-        }
-    }, []);
-
-    // Re-process embeds when Swiper changes or loads
-    const onSwiperTransition = () => {
-        if (isLoaded && (window as any).instgrm) {
-            (window as any).instgrm.Embeds.process();
-        }
-    };
-
     return (
         <div className="relative w-full py-20 overflow-hidden min-h-[700px] flex flex-col justify-center bg-black">
             {/* Ambient Glows */}
@@ -84,12 +54,11 @@ export const WorkSwiper = () => {
 
                 <Carousel_001
                     className="w-full"
-                    reels={allReels}
+                    videos={CAROUSEL_VIDEOS}
                     showPagination
                     loop={true}
                     showNavigation
-                    autoplay={false}
-                    onTransitionEnd={onSwiperTransition}
+                    autoplay={true}
                 />
             </div>
         </div>
@@ -97,24 +66,24 @@ export const WorkSwiper = () => {
 };
 
 const Carousel_001 = ({
-    reels,
+    videos,
     className,
     showPagination = false,
     showNavigation = false,
     loop = true,
     autoplay = false,
     spaceBetween = 0,
-    onTransitionEnd,
 }: {
-    reels: any[];
+    videos: any[];
     className?: string;
     showPagination?: boolean;
     showNavigation?: boolean;
     loop?: boolean;
     autoplay?: boolean;
     spaceBetween?: number;
-    onTransitionEnd?: () => void;
 }) => {
+    const swiperRef = useRef<any>(null);
+
     const css = `
     .Carousal_001 {
         padding-bottom: 80px !important;
@@ -134,8 +103,7 @@ const Carousel_001 = ({
         width: 32px;
     }
     
-    /* Instagram Crop Styling */
-    .instagram-crop-container {
+    .video-container {
         position: relative;
         width: 100%;
         height: 100%;
@@ -144,31 +112,15 @@ const Carousel_001 = ({
         border-radius: 24px;
     }
 
-    /* Target the iframe and shift it to hide header/footer */
-    /* We focus on the inner video area by using a taller iframe and cropping the top/bottom */
-    .instagram-crop-container iframe {
-        position: absolute !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) scale(1.4) !important; /* Increased zoom for impact */
-        width: 100% !important;
-        height: 100% !important;
-        border: none !important;
-        filter: contrast(1.05) brightness(1.05); /* Slight aesthetic boost */
-    }
-
-    /* Overlay to block interaction and extra UI elements */
-    .instagram-overlay {
-        position: absolute;
-        inset: 0;
-        z-index: 10;
-        background: transparent;
-        pointer-events: none;
+    .video-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     .swiper-slide {
         transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        filter: grayscale(100%);
+        filter: grayscale(80%);
         opacity: 0.4;
         transform: scale(0.85);
     }
@@ -178,7 +130,7 @@ const Carousel_001 = ({
         transform: scale(1);
         z-index: 20;
     }
-    .swiper-slide-active .instagram-crop-container {
+    .swiper-slide-active .video-container {
         box-shadow: 0 20px 50px -10px rgba(242, 124, 44, 0.3);
         border: 2px solid rgba(242, 124, 44, 0.5);
     }
@@ -193,15 +145,18 @@ const Carousel_001 = ({
                 delay: 0.5,
             }}
             className={cn("w-full relative", className)}
+            onMouseEnter={() => swiperRef.current?.autoplay?.stop()}
+            onMouseLeave={() => swiperRef.current?.autoplay?.start()}
         >
             <style>{css}</style>
 
             <Swiper
+                onSwiper={(swiper) => (swiperRef.current = swiper)}
                 spaceBetween={spaceBetween}
                 autoplay={
                     autoplay
                         ? {
-                            delay: 4000,
+                            delay: 3000,
                             disableOnInteraction: false,
                         }
                         : false
@@ -210,12 +165,10 @@ const Carousel_001 = ({
                 grabCursor={true}
                 centeredSlides={true}
                 loop={loop}
-                slidesPerView={1.5}
-                onTransitionEnd={onTransitionEnd}
-                onSlideChange={onTransitionEnd}
+                slidesPerView={1.2}
                 breakpoints={{
-                    640: { slidesPerView: 2.5 },
-                    1024: { slidesPerView: 4.5 }
+                    640: { slidesPerView: 2 },
+                    1024: { slidesPerView: 3.5 }
                 }}
                 coverflowEffect={{
                     rotate: 0,
@@ -242,21 +195,23 @@ const Carousel_001 = ({
                 className="Carousal_001 !overflow-visible"
                 modules={[EffectCoverflow, Autoplay, Pagination, Navigation]}
             >
-                {reels.map((reel, index) => (
+                {videos.map((video, index) => (
                     <SwiperSlide key={index} className="aspect-[9/16] rounded-[32px] overflow-hidden bg-black/40 backdrop-blur-sm border border-white/10 shadow-2xl transition-all duration-500">
-                        <div className="instagram-crop-container">
-                            <iframe
-                                src={`${reel.url.endsWith('/') ? reel.url : reel.url + '/'}embed/`}
-                                className="w-full h-full border-0"
+                        <div className="video-container">
+                            <video
+                                src={video.url}
+                                className="w-full h-full object-cover"
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
                             />
-                            {/* Mask/Overlay to ensure focus remains on slide navigation and hide embed UI */}
-                            <div className="instagram-overlay pointer-events-none" />
                         </div>
 
                         {/* Info Overlay */}
                         <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-20 pointer-events-none">
-                            <p className="text-orange-400 font-mono text-[10px] uppercase tracking-wider mb-1">{reel.category}</p>
-                            <h3 className="text-lg font-bold text-white leading-tight">{reel.clientName}</h3>
+                            <p className="text-orange-400 font-mono text-[10px] uppercase tracking-wider mb-1">{video.category}</p>
+                            <h3 className="text-lg font-bold text-white leading-tight">{video.title}</h3>
                         </div>
                     </SwiperSlide>
                 ))}
@@ -275,3 +230,4 @@ const Carousel_001 = ({
         </motion.div>
     );
 };
+
