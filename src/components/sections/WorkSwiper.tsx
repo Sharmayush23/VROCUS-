@@ -32,34 +32,39 @@ const PRIMARY_GRADIENT = "from-[#1E2A4A] via-[#1F6ED4] to-[#16A1B5]";
 
 export const WorkSwiper = () => {
     return (
-        <div className="relative w-full py-20 overflow-hidden min-h-[700px] flex flex-col justify-center bg-black">
+        <div className="relative w-full py-20 min-h-[700px] flex flex-col justify-center bg-black overflow-hidden lg:overflow-visible">
             {/* Ambient Glows */}
             <div className={`absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br ${PRIMARY_GRADIENT} opacity-10 blur-[120px] rounded-full pointer-events-none`} />
 
-            <div className="container mx-auto relative z-10 px-4">
-                {/* Header */}
-                <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 text-center md:text-left">
-                    <div>
-                        <motion.span
-                            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-                            className={`text-transparent bg-clip-text bg-gradient-to-r ${PRIMARY_GRADIENT} font-mono text-sm uppercase tracking-widest block mb-4 font-bold`}
-                        >
-                            Live Work Showcase
-                        </motion.span>
-                        <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white uppercase tracking-tighter leading-none mb-4 md:mb-0">
-                            Client <br /> <span className={`text-transparent bg-clip-text bg-gradient-to-r ${ACCENT_GRADIENT}`}>Reels.</span>
-                        </h2>
+            <div className="w-full relative z-10 max-w-[100vw]">
+                {/* Header Container - Keep Padded */}
+                <div className="container mx-auto px-4 md:px-6 mb-16">
+                    <div className="flex flex-col md:flex-row justify-between items-center md:items-end text-center md:text-left">
+                        <div>
+                            <motion.span
+                                initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+                                className={`text-transparent bg-clip-text bg-gradient-to-r ${PRIMARY_GRADIENT} font-mono text-sm uppercase tracking-widest block mb-4 font-bold`}
+                            >
+                                Live Work Showcase
+                            </motion.span>
+                            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white uppercase tracking-tighter leading-none mb-4 md:mb-0">
+                                Client <br /> <span className={`text-transparent bg-clip-text bg-gradient-to-r ${ACCENT_GRADIENT}`}>Reels.</span>
+                            </h2>
+                        </div>
                     </div>
                 </div>
 
-                <Carousel_001
-                    className="w-full"
-                    videos={CAROUSEL_VIDEOS}
-                    showPagination
-                    loop={true}
-                    showNavigation
-                    autoplay={true}
-                />
+                {/* Carousel Container - Full Width to avoid clipping */}
+                <div className="w-full overflow-hidden md:overflow-visible">
+                    <Carousel_001
+                        className="w-full"
+                        videos={CAROUSEL_VIDEOS}
+                        showPagination
+                        loop={true}
+                        showNavigation
+                        autoplay={true}
+                    />
+                </div>
             </div>
         </div>
     );
@@ -192,6 +197,8 @@ const Carousel_001 = ({
                         }
                         : false
                 }
+                observer={true}
+                observeParents={true}
                 className="Carousal_001 !overflow-visible"
                 modules={[EffectCoverflow, Autoplay, Pagination, Navigation]}
             >

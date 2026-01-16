@@ -35,7 +35,7 @@ export function HeroSection() {
                     </h1>
 
                     <p className="text-muted text-lg md:text-xl max-w-2xl mx-auto font-medium leading-relaxed opacity-80">
-                        Top-tier results for personal brands and industry leaders. We grow followers from <strong>200 to 120k</strong> and turn engagement into pure impact.
+                        Trusted by the <strong>Khanna Police</strong> and top brands. We grow followers from <strong>200 to 120k</strong> and turn engagement into pure impact.
                     </p>
 
                     {/* Primary CTA Section - Glassmorphic Input */}
